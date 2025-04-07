@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { gsap } from "gsap";
+import { usePathname } from "next/navigation";
 
 import Button from "../ui/Button";
 import { cn } from "@/lib/utils";
@@ -15,6 +16,7 @@ import Drawer from "../ui/Drawer";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("/");
+  const pathname = usePathname();
 
   // Load activeTab from local storage on component mount
   useEffect(() => {
@@ -53,7 +55,7 @@ const Navbar = () => {
       <nav
         className={cn(
           "min-h-[80px] bg-cover z-50 w-full",
-          activeTab === "/" ? "absolute" : "relative bg-black"
+          pathname === "/" ? "absolute" : "relative bg-black"
         )}
       >
         <div className="flex justify-center items-center w-full min-h-[80px]">
