@@ -6,6 +6,7 @@ import Text from '@/components/ui/Text'
 import signin from "@/public/images/home/signin.png"
 import cources from "@/public/images/home/cources.png"
 import learning from "@/public/images/home/learning.png"
+
 const HowItWorks = () => {
     return (
         <div className='py-24'>
