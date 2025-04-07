@@ -4,7 +4,7 @@ import Link from "next/link";
 import { gsap } from "gsap";
 
 import Button from "../ui/Button";
-
+import { cn } from "@/lib/utils";
 import Drawer from "../ui/Drawer";
 // import logo from "../../../public/logo.svg";
 // import linkedinsvg from "../../../public/linkedin.svg";
@@ -14,7 +14,7 @@ import Drawer from "../ui/Drawer";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState("/"); // Initial active tab set to home
+  const [activeTab, setActiveTab] = useState("/");
 
   // Load activeTab from local storage on component mount
   useEffect(() => {
@@ -51,28 +51,28 @@ const Navbar = () => {
   return (
     <div className="relative">
       <nav
-        className="absolute min-h-[80px] bg-cover z-50 w-full" >
+        className={cn(
+          "min-h-[80px] bg-cover z-50 w-full",
+          activeTab === "/" ? "absolute" : "relative bg-black"
+        )}
+      >
         <div className="flex justify-center items-center w-full min-h-[80px]">
           <div className="relative max-w-[1300px] min-h-[80px] w-full flex flex-wrap items-center justify-between mx-auto py-4">
-            <div
-              className="flex justify-between items-center w-full mob:px-5 pb-4"
-
-            >
+            <div className="flex justify-between items-center w-full mob:px-5 pb-4">
               {/* dekstop navbar */}
               <Link
                 href="/"
                 className="flex mob:justify-start xl:hidden space-x-3 mob:w-[140px] rtl:space-x-reverse"
-              >
-
-              </Link>
+              ></Link>
 
               <ul className="font-normal mob:absolute xl:hidden mob:top-[100px] items-center mob:px-4 mob:left-0 mob:w-full z-50 flex flex-col py-4 md:p-0 mt-4 gap-[32px] md:flex-row rtl:space-x-reverse md:mt-0 tab:bg-black">
                 <li>
                   <Link
                     href="#"
                     onClick={() => handleTabChange("#")}
-                    className={`block text-[14px] font-helvitica font-bold leading-[100%] text-white ${activeTab === "#" ? " " : "text-white"
-                      }`}
+                    className={`block text-[14px] font-helvitica font-bold leading-[100%] text-white ${
+                      activeTab === "#" ? " " : "text-white"
+                    }`}
                   >
                     Trading Courses
                   </Link>
@@ -81,47 +81,44 @@ const Navbar = () => {
                   <Link
                     href="#"
                     onClick={() => handleTabChange("/product-and-services")}
-                    className={`block text-[14px] font-helvitica font-bold leading-[100%] text-white ${activeTab === "#" ? " " : "text-white"
-                      }`}
+                    className={`block text-[14px] font-helvitica font-bold leading-[100%] text-white ${
+                      activeTab === "#" ? " " : "text-white"
+                    }`}
                   >
                     Trading Guides
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="#"
+                    href="/about-us"
                     onClick={() => handleTabChange("/news")}
-                    className={`block text-[14px] font-helvitica font-bold leading-[100%] text-white ${activeTab === "#" ? " " : "text-white"
-                      }`}
+                    className={`block text-[14px] font-helvitica font-bold leading-[100%] text-white ${
+                      activeTab === "#" ? " " : "text-white"
+                    }`}
                   >
                     About Us
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="#"
+                    href="/contact-us"
                     onClick={() => handleTabChange("/awareness-and-advocacy")}
-                    className={`block text-[14px] font-helvitica font-bold leading-[100%] text-white ${activeTab === "#" ? " " : "text-white"
-                      }`}
+                    className={`block text-[14px] font-helvitica font-bold leading-[100%] text-white ${
+                      activeTab === "#" ? " " : "text-white"
+                    }`}
                   >
                     Contact Us
                   </Link>
                 </li>
-
-
-
               </ul>
 
               <div className="flex items-center gap-4 xl:hidden">
-
                 <Link
                   href="/signup"
                   onClick={() => handleTabChange("/signup")}
                   className="w-[109px] "
                 >
-                  <Button className="border-accent">
-                    Login
-                  </Button>
+                  <Button className="border-accent">Login</Button>
                 </Link>
 
                 <Link
@@ -129,8 +126,9 @@ const Navbar = () => {
                   className="w-[109px]"
                   onClick={() => handleTabChange("/login")}
                 >
-                  <Button className='max-w-[124px] text-white border-accent bg-accent'>Get Started</Button>
-
+                  <Button className="max-w-[124px] text-white border-accent bg-accent">
+                    Get Started
+                  </Button>
                 </Link>
               </div>
               {/* dekstop navbar */}
@@ -179,18 +177,15 @@ const Navbar = () => {
                         href={path}
                         key={path}
                         onClick={() => handleTabChange(path)}
-                        className={`block text-[14px] font-helvitica font-bold leading-[100%] text-white  ${activeTab === path
-                            ? "text-white"
-                            : "text-white"
-                          }`}
+                        className={`block text-[14px] font-helvitica font-bold leading-[100%] text-white  ${
+                          activeTab === path ? "text-white" : "text-white"
+                        }`}
                       >
                         <li className="flex justify-start py-[15px] list-items mob:px-[25px]">
                           {path === "/" ? "Home" : path.slice(1).toUpperCase()}
                         </li>
                       </a>
                     ))}
-
-                 
                   </ul>
                 </Drawer>
               </div>
