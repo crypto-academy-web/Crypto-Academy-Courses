@@ -103,6 +103,11 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      <div className="w-full bg-[#202630] h-[80px] flex justify-center items-center mob:px-5 text-center">
+        <Text className="text-white text-[15px] font-bold">
+          Copyright © 2025 AvaTrade Markets Ltd. All rights reserved.
+        </Text>
+      </div>
     </div>
   );
 };

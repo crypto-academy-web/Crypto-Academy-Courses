@@ -13,16 +13,16 @@ const WriteUs = () => {
           <input
             type="text"
             placeholder="Your Name"
-            className="bg-[#202630]/20 w-full max-w-[590px] h-[80px] px-[30px] focus:outline-none mob:max-w-full"
+            className="bg-[#202630]/10 w-full max-w-[590px] h-[80px] px-[30px] focus:outline-none mob:max-w-full"
           />
           <input
             type="email"
             placeholder="Your E-mail"
-            className="bg-[#202630]/20 w-full max-w-[590px] h-[80px] px-[30px] focus:outline-none mob:max-w-full"
+            className="bg-[#202630]/10 w-full max-w-[590px] h-[80px] px-[30px] focus:outline-none mob:max-w-full"
           />
         </div>
         <textarea
-          className="bg-[#202630]/20 w-full h-[260px] p-[30px] focus:outline-none mb-[73px]"
+          className="bg-[#202630]/10 w-full h-[260px] p-[30px] focus:outline-none mb-[73px]"
           placeholder="Your Message"
         />
       </div>
