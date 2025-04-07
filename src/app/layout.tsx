@@ -1,12 +1,45 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
+const helveticaa = localFont({
+  src: "./fonts/helvetica-neue/HelveticaNeueBold.otf",
+  variable: "--font-helvetica",
   weight: "100 900",
 });
+
+const helvetica = localFont({
+  src: [
+    {
+      path: "./fonts/helvetica-neue/HelveticaNeueLight.otf",
+      weight: "300", // Light weight
+      style: "normal",
+    },
+    {
+      path: "./fonts/helvetica-neue/HelveticaNeue-Roman.otf",
+      weight: "400", // Regular weight
+      style: "normal",
+    },
+    {
+      path: "./fonts/helvetica-neue/HelveticaNeueMedium.otf",
+      weight: "500", // Medium weight
+      style: "normal",
+    },
+    {
+      path: "./fonts/helvetica-neue/HelveticaNeueBold.otf",
+      weight: "700", // Bold weight
+      style: "normal",
+    },
+    {
+      path: "./fonts/helvetica-neue/HelveticaNeueHeavy.otf",
+      weight: "900", // Black weight
+      style: "normal",
+    },
+  ],
+  variable: "--font-helvetica",
+});
+
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
@@ -26,8 +59,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${helvetica.variable} ${geistMono.variable} antialiased`}
       >
+        <Navbar/>
         {children}
       </body>
     </html>
