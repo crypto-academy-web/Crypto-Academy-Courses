@@ -18,27 +18,27 @@ const items = [
     {
         id: 2,
         image: icon2,
-        text: 'How to Trade Crypto',
+        text: 'DeFi & Web3',
     },
     {
         id: 3,
         image: icon3,
-        text: 'How to Trade Crypto',
+        text: 'Blockchain',
     },
     {
         id: 4,
         image: icon4,
-        text: 'How to Trade Crypto',
+        text: ' Digital Assets',
     },
     {
         id: 5,
         image: icon5,
-        text: 'How to Trade Crypto',
+        text: 'Security and Risks',
     },
     {
         id: 6,
         image: icon6,
-        text: 'How to Trade Crypto',
+        text: 'Trends & Future',
     },
 ];
 const Learn = () => {

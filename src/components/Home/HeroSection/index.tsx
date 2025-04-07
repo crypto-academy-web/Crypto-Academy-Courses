@@ -23,7 +23,7 @@ const HeroSection = () => {
                         <Button className='max-w-[124px] text-primary bg-[#FFFFFF]'>Get Started</Button>
                     </div>
                 </div>
-<Image className=' h-full object-cover w-auto absolute top-0 right-0  z-0 mob:relative mob:max-w-full mob:w-full ' src={herobg} alt="herobg" />
+                <Image className=' h-full object-cover w-auto absolute top-0 right-0  z-0 mob:relative mob:max-w-full mob:w-full ' src={herobg} alt="herobg" />
             </div>
         </div>
     )

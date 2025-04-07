@@ -9,7 +9,7 @@ import Button from '@/components/ui/Button';
 const courses = [
     {
         id: 1,
-        imageSrc: course1, // Use the imported image here
+        imageSrc: course1, 
         title: 'All Assets Trading Course',
         description: 'Start Trading Course Now... Quick & Dirty',
         duration: '80 minutes',
@@ -17,7 +17,7 @@ const courses = [
     },
     {
         id: 2,
-        imageSrc: course1, // Use the imported image here for the second course (or another image if needed)
+        imageSrc: course1,
         title: 'Beginner Trading Course',
         description: 'Start Trading Course Now... Quick & Dirty',
         duration: '60 minutes',
@@ -25,7 +25,7 @@ const courses = [
     },
     {
         id: 3,
-        imageSrc: course1, // Same image for this one as well (or replace with another image)
+        imageSrc: course1,
         title: 'Advanced Trading Strategies',
         description: 'Start Trading Course Now... Quick & Dirty',
         duration: '120 minutes',
@@ -33,7 +33,7 @@ const courses = [
     },
     {
         id: 4,
-        imageSrc: course1, // Same for the last one
+        imageSrc: course1,
         title: 'Crypto Trading Basics',
         description: 'Start Trading Course Now... Quick & Dirty',
         duration: '90 minutes',
@@ -41,7 +41,7 @@ const courses = [
     },
     {
         id: 5,
-        imageSrc: course1, // Use the imported image here
+        imageSrc: course1, 
         title: 'All Assets Trading Course',
         description: 'Start Trading Course Now... Quick & Dirty',
         duration: '80 minutes',
@@ -49,7 +49,7 @@ const courses = [
     },
     {
         id: 6,
-        imageSrc: course1, // Use the imported image here for the second course (or another image if needed)
+        imageSrc: course1, 
         title: 'Beginner Trading Course',
         description: 'Start Trading Course Now... Quick & Dirty',
         duration: '60 minutes',
@@ -57,7 +57,7 @@ const courses = [
     },
     {
         id: 7,
-        imageSrc: course1, // Same image for this one as well (or replace with another image)
+        imageSrc: course1, 
         title: 'Advanced Trading Strategies',
         description: 'Start Trading Course Now... Quick & Dirty',
         duration: '120 minutes',
@@ -65,7 +65,7 @@ const courses = [
     },
     {
         id: 8,
-        imageSrc: course1, // Same for the last one
+        imageSrc: course1, 
         title: 'Crypto Trading Basics',
         description: 'Start Trading Course Now... Quick & Dirty',
         duration: '90 minutes',
