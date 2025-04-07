@@ -1,11 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { gsap } from "gsap";
 
 import Button from "../ui/Button";
-import Text from "../ui/Text";
 
 import Drawer from "../ui/Drawer";
 // import logo from "../../../public/logo.svg";

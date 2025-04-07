@@ -3,12 +3,6 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 
-const helveticaa = localFont({
-  src: "./fonts/helvetica-neue/HelveticaNeueBold.otf",
-  variable: "--font-helvetica",
-  weight: "100 900",
-});
-
 const helvetica = localFont({
   src: [
     {

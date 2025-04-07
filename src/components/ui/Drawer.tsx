@@ -1,6 +1,4 @@
 "use client";
-import Image from "next/image";
-
 import { useCallback, useEffect } from "react";
 import { twMerge } from "tailwind-merge";
 
