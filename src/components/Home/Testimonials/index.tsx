@@ -7,7 +7,7 @@ import dots from "@/public/images/home/dots.png"
 import user from "@/public/images/home/user.png"
 const Testimonials = () => {
     return (
-        <div className='mt-20 mb-16 px-5'>
+        <div className='mt-20 mb-10 px-5'>
             <div className="w-full max-w-[1313px] mx-auto bg-[#20263040] py-8 rounded-[30px] mob:px-5">
                 <Text as='h2' className='text-center text-[34px] '>
                     People Say The Nicest Things
