@@ -1,12 +1,12 @@
 "use client"
 import React, { useState } from 'react'
+import Image from 'next/image';
 
 import Text from '@/components/ui/Text'
+import Button from '@/components/ui/Button';
 
 import course1 from "@/public/images/home/course1.png"
 import clock from "@/public/icons/clock.svg"
-import Image from 'next/image';
-import Button from '@/components/ui/Button';
 const courses = [
     {
         id: 1,
