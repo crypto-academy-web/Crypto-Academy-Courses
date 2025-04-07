@@ -7,9 +7,9 @@ import mail from "@/public/images/contact/mail.svg";
 import location from "@/public/images/contact/location.svg";
 const ContactInfo = () => {
   return (
-    <div className="w-full mt-[84px] px-5">
+    <div className="w-full mt-[84px]">
       <div className="w-full flex justify-center items-center">
-        <div className="w-full max-w-[1242px]">
+        <div className="w-full px-5 max-w-[1242px]">
           <Text className="text-[21px] font-bold text-black mb-[43px]">
             Contact Info:
           </Text>

@@ -4,8 +4,8 @@ import Text from "@/components/ui/Text";
 
 const WriteUs = () => {
   return (
-    <div className="w-full flex justify-center items-center px-5">
-      <div className=" w-full max-w-[1242px]">
+    <div className="w-full flex justify-center items-center">
+      <div className=" w-full max-w-[1242px] px-5">
         <Text className="text-black text-[21px] font-bold mb-[23px]">
           Write to us:
         </Text>

@@ -10,9 +10,9 @@ import mail from "@/public/images/Footer/mail.svg";
 
 const Footer = () => {
   return (
-    <div className="w-full h-full  bg-[#000080] px-5">
+    <div className="w-full h-full  bg-[#000080]">
       <div className="w-full flex min-h-[372px] justify-center items-center tab:py-10">
-        <div className="w-full flex justify-between items-start max-w-[1162px] tab:flex-col tab:gap-7">
+        <div className="w-full flex justify-between items-start max-w-[1162px] px-5 tab:flex-col tab:gap-7">
           <div className="w-full max-w-[270px]">
             <Text className="text-white text-[18px] mb-6 font-bold">
               About AvaAcademy
@@ -30,13 +30,13 @@ const Footer = () => {
             <Text className="text-white text-[18px] mb-6 font-bold">Pages</Text>
             <div className="flex gap-[12px] mb-[19px]">
               <Text className="text-white text-[13px] font-bold">{`>`}</Text>
-              <Link href="#">
+              <Link href="/">
                 <Text className="text-white text-[13px] font-bold">Home</Text>
               </Link>
             </div>
             <div className="flex gap-[12px] mb-[19px]">
               <Text className="text-white text-[13px] font-bold">{`>`}</Text>
-              <Link href="#">
+              <Link href="about-us">
                 <Text className="text-white text-[13px] font-bold">
                   About Us
                 </Text>
@@ -44,7 +44,7 @@ const Footer = () => {
             </div>
             <div className="flex gap-[12px] mb-[19px]">
               <Text className="text-white text-[13px] font-bold">{`>`}</Text>
-              <Link href="#">
+              <Link href="contact-us">
                 <Text className="text-white text-[13px] font-bold">
                   Contact Us
                 </Text>

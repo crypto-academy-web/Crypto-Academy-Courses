@@ -90,7 +90,7 @@ const Navbar = () => {
                 </li>
                 <li>
                   <Link
-                    href="#"
+                    href="/about-us"
                     onClick={() => handleTabChange("/news")}
                     className={`block text-[14px] font-helvitica font-bold leading-[100%] text-white ${
                       activeTab === "#" ? " " : "text-white"
@@ -101,7 +101,7 @@ const Navbar = () => {
                 </li>
                 <li>
                   <Link
-                    href="#"
+                    href="/contact-us"
                     onClick={() => handleTabChange("/awareness-and-advocacy")}
                     className={`block text-[14px] font-helvitica font-bold leading-[100%] text-white ${
                       activeTab === "#" ? " " : "text-white"
