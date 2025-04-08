@@ -60,7 +60,7 @@ const Navbar = () => {
       >
         <div className="flex justify-center items-center w-full min-h-[80px]">
           <div className="relative max-w-[1300px] min-h-[80px] w-full flex flex-wrap items-center justify-between mx-auto py-4">
-            <div className="flex justify-between items-center w-full mob:px-5 pb-4">
+            <div className="flex justify-between items-center w-full mob:px-5 ">
               {/* dekstop navbar */}
               <Link
                 href="/"
@@ -81,7 +81,7 @@ const Navbar = () => {
                 </li>
                 <li>
                   <Link
-                    href="#"
+                    href="trading-guides"
                     onClick={() => handleTabChange("/product-and-services")}
                     className={`block text-[14px] font-helvitica font-bold leading-[100%] text-white ${
                       activeTab === "#" ? " " : "text-white"
