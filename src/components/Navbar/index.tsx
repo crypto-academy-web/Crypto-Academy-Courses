@@ -70,7 +70,7 @@ const Navbar = () => {
               <ul className="font-normal mob:absolute xl:hidden mob:top-[100px] items-center mob:px-4 mob:left-0 mob:w-full z-50 flex flex-col py-4 md:p-0 mt-4 gap-[32px] md:flex-row rtl:space-x-reverse md:mt-0 tab:bg-black">
                 <li>
                   <Link
-                    href="#"
+                    href="trading-courses"
                     onClick={() => handleTabChange("#")}
                     className={`block text-[14px] font-helvitica font-bold leading-[100%] text-white ${
                       activeTab === "#" ? " " : "text-white"
