@@ -17,7 +17,7 @@ const button = cva(
     variants: {
       variant: {
         primary: [
-          "text-white font-bold w-full text-[14px] flex justify-center items-center rounded-[0px] border-[#FFFFFF] border-[2px] bg-transparent",
+          "text-white font-medium w-full text-[14px] flex justify-center items-center rounded-[0px] border-[#FFFFFF] border-[2px] bg-transparent",
         ],
       },
       size: {
