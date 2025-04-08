@@ -3,6 +3,7 @@ import AboutHero from "@/components/About/Hero";
 import AboutSignUp from "@/components/About/SignupForFree";
 
 import Text from "@/components/ui/Text";
+
 const AboutUs = () => {
   return (
     <>
