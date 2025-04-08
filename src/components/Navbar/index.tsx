@@ -60,7 +60,7 @@ const Navbar = () => {
       >
         <div className="flex justify-center items-center w-full min-h-[80px]">
           <div className="relative max-w-[1300px] min-h-[80px] w-full flex flex-wrap items-center justify-between mx-auto py-4">
-            <div className="flex justify-between items-center w-full mob:px-5 pb-4">
+            <div className="flex justify-between items-center w-full mob:px-5 ">
               {/* dekstop navbar */}
               <Link
                 href="/"
@@ -70,7 +70,7 @@ const Navbar = () => {
               <ul className="font-normal mob:absolute xl:hidden mob:top-[100px] items-center mob:px-4 mob:left-0 mob:w-full z-50 flex flex-col py-4 md:p-0 mt-4 gap-[32px] md:flex-row rtl:space-x-reverse md:mt-0 tab:bg-black">
                 <li>
                   <Link
-                    href="#"
+                    href="trading-courses"
                     onClick={() => handleTabChange("#")}
                     className={`block text-[14px] font-helvitica font-bold leading-[100%] text-white ${
                       activeTab === "#" ? " " : "text-white"
@@ -81,7 +81,7 @@ const Navbar = () => {
                 </li>
                 <li>
                   <Link
-                    href="#"
+                    href="trading-guides"
                     onClick={() => handleTabChange("/product-and-services")}
                     className={`block text-[14px] font-helvitica font-bold leading-[100%] text-white ${
                       activeTab === "#" ? " " : "text-white"
