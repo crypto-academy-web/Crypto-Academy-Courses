@@ -1,10 +1,11 @@
 import React from 'react'
+import Image from 'next/image'
 
 import Text from '@/components/ui/Text'
 import Button from '@/components/ui/Button'
 
 import category from "@/public/images/start-trading/category.png"
-import Image from 'next/image'
+import enrolled from "@/public/images/start-trading/studentenrolled.png"
 
 const Hero = () => {
     return (
@@ -21,8 +22,8 @@ const Hero = () => {
                         Ready to dive into the trading world? If you are eager to embark on a trading journey, our "Start Trading Now... <span className='text-[#7B6FFE]'> Show more</span>
                     </Text>
 
-                    <div className="flex mt-8">
-                        <div className="flex gap-2">
+                    <div className="flex max-w-[500px] flex-wrap items-center justify-between gap-10 mt-8">
+                        <div className="flex items-center gap-2">
                             <Image src={category} alt="category" width={28} height={36} />
                             <div className="">
                                 <Text className='text-[14px] text-white/70 leading-[20px] font-bold ' >
@@ -30,6 +31,17 @@ const Hero = () => {
                                 </Text>
                                 <Text className='text-[16px] text-white leading-[20px] font-bold mt-1' >
                                     All Assets Trading Course
+                                </Text>
+                            </div>
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <Image src={enrolled} alt="category" width={28} height={36} />
+                            <div className="">
+                                <Text className='text-[14px] text-white/70 leading-[20px] font-bold ' >
+                                    Students Enrolled
+                                </Text>
+                                <Text className='text-[16px] text-white leading-[20px] font-bold mt-1' >
+                                    622,059
                                 </Text>
                             </div>
                         </div>

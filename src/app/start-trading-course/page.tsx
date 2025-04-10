@@ -1,3 +1,4 @@
+import Description from '@/components/StartTrading/Description'
 import Hero from '@/components/StartTrading/Hero'
 import Text from '@/components/ui/Text'
 import React from 'react'
@@ -12,6 +13,7 @@ const STartTradingPage = () => {
                 </Text>
             </div>
             <Hero />
+            <Description/>
         </div>
     )
 }
