@@ -9,6 +9,7 @@ import searchbar from "@/public/icons/searchbar.svg";
 import course1 from "@/public/images/home/course1.png";
 import clock from "@/public/icons/clock.svg";
 import Button from '@/components/ui/Button';
+import Link from 'next/link';
 
 const courses = [
     {
@@ -141,7 +142,7 @@ const Products = () => {
         <div className='w-full px-5'>
             <div className="max-w-[1313px] mx-auto w-full">
                 <div className="flex justify-between">
-                    <Text as='h1' className='text-black text-[36px]'>
+                    <Text as='h1' className='text-black text-[36px] mob:hidden'>
                         Trading Courses
                     </Text>
 
@@ -172,11 +173,15 @@ const Products = () => {
                     </div>
                 </div>
 
-                <Text className='text-[14px] font-helvetica font-normal leading-[133%] max-w-[1187px] my-8'>
+                <Text as='h1' className='text-black text-[36px] mob:block hidden mt-8'>
+                        Trading Courses
+                    </Text>
+
+                <Text className='text-[14px] font-helvetica font-normal leading-[133%] max-w-[1187px] my-8 mob:my-4'>
                     Unlock your trading potential with AvaAcademy! Register for free and gain exclusive access to advanced courses on trading platforms, asset classes, online strategies, and more. Dive deep into the world of trading with expert insights on fundamental and technical analysis, risk management, and the dynamics of financial markets. Start your comprehensive trading education journey today!
                 </Text>
 
-                <div className="flex justify-end w-full gap-12 mt-14">
+                <div className="flex mob:flex-wrap mob:justify-center justify-end w-full gap-12 mt-14">
                     {/* filter */}
                     <div className="w-full max-w-[251px]">
                         <SideCategory />
@@ -186,7 +191,7 @@ const Products = () => {
                     <div className="">
                         <div className="w-full max-w-[914px] flex flex-wrap items-center mob:justify-center gap-12">
                             {courses.slice(0, visibleCourses).map((course, index) => (
-                                <div key={index} className="w-[272.07px] rounded-[20px] course-shadow relative">
+                                <Link href="/start-trading-course" key={index} className="w-[272.07px] rounded-[20px] course-shadow relative">
                                     <button className='bg-[#FF0000] w-[39px] h-[21px] rounded-[3px] absolute top-[15px] right-[15px] uppercase text-[9px] font-helvetica font-normal text-white'>HOT</button>
                                     <Image
                                         className="w-full h-[154px] object-cover rounded-t-[20px]"
@@ -210,7 +215,7 @@ const Products = () => {
                                             <Text className="text-[12px] font-bold">{course.price}</Text>
                                         </div>
                                     </div>
-                                </div>
+                                </Link>
                             ))}
                         </div>
 

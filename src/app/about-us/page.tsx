@@ -8,10 +8,13 @@ const AboutUs = () => {
   return (
     <>
       <div className="w-full px-[70px] mob:px-5 bg-[#F6F6F6] h-[44px] mb-[68px] flex items-center">
-        <Text className="text-[10px] text-[#20263033]/20">
-          Home {`>>`} About Us
-        </Text>
+        <div className="w-full max-w-[1120px] mx-auto">
+          <Text className="text-[10px] text-[#20263033]/20">
+            Home {`>>`} About Us
+          </Text>
+        </div>
       </div>
+
       <AboutHero />
       <AboutSignUp />
     </>
