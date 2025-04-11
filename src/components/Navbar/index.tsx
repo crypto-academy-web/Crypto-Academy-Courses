@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import Button from "../ui/Button";
 import { cn } from "@/lib/utils";
 import Drawer from "../ui/Drawer";
-import SidebarUser from "../SidebarUser";
+import Modal from "../ui/Modal";
 // import logo from "../../../public/logo.svg";
 // import linkedinsvg from "../../../public/linkedin.svg";
 // import linkedinsvgmob from "../../../public/linkedin1.svg";
@@ -17,6 +17,10 @@ import SidebarUser from "../SidebarUser";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("/");
+  
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [initialView, setInitialView] = useState<'login' | 'getStarted'>('login');
+
   const pathname = usePathname();
 
   // Load activeTab from local storage on component mount
@@ -52,16 +56,16 @@ const Navbar = () => {
   }, [isOpen]);
 
   return (
-    <div className="relative">
+    <div className="relative ">
       <nav
         className={cn(
           "min-h-[80px] bg-cover z-50 w-full",
           pathname === "/" ? "absolute" : "relative bg-black"
         )}
       >
-        <div className="flex justify-center items-center w-full min-h-[80px]">
+        <div className="flex justify-center items-center w-full min-h-[80px] overflow-hidden">
           <div className="relative max-w-[1300px] min-h-[80px] w-full flex flex-wrap items-center justify-between mx-auto py-4">
-            <div className="flex justify-between items-center w-full mob:px-5 ">
+            <div className="flex justify-between items-center w-full mob:px-5 overflow-hidden">
               {/* dekstop navbar */}
               <Link
                 href="/"
@@ -112,25 +116,32 @@ const Navbar = () => {
               </ul>
 
               <div className="flex items-center gap-4 xl:hidden">
-                <Link
-                  href="/signup"
-                  onClick={() => handleTabChange("/signup")}
+                <div
+                  onClick={() => {
+                    setInitialView('login');
+                    setIsOpenModal(true);
+                  }}
                   className="w-[109px] "
                 >
                   <Button className="border-accent">Login</Button>
-                </Link>
+                </div>
 
-                <Link
-                  href="/login"
+                <div
                   className="w-[109px]"
-                  onClick={() => handleTabChange("/login")}
+                  onClick={() => {
+                    setInitialView('getStarted');
+                    setIsOpenModal(true);
+                  }}
+
                 >
                   <Button className="max-w-[124px] text-white border-accent bg-accent">
                     Get Started
                   </Button>
-                </Link>
+                </div>
 
-                <SidebarUser />
+
+                <Modal isOpenModal={isOpenModal} onClose={() => setIsOpenModal(false)} initialView={initialView} />
+                {/* <SidebarUser /> */}
               </div>
               {/* dekstop navbar */}
 
