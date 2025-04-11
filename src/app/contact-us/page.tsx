@@ -1,7 +1,6 @@
 import React from "react";
 
 import Text from "@/components/ui/Text";
-
 import ContactInfo from "@/components/Contact-us/Contact-Info";
 import WriteUs from "@/components/Contact-us/Write-to-us";
 
