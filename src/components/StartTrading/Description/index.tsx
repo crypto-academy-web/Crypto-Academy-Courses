@@ -1,11 +1,13 @@
 import React from 'react'
+import Image from 'next/image';
 
 import Button from '@/components/ui/Button'
 import Text from '@/components/ui/Text'
 
 import course1 from "@/public/images/home/course1.png";
-import clock from "@/public/icons/clock.svg";
-import Image from 'next/image';
+import heart from "@/public/icons/heart.svg";
+import share from "@/public/icons/share.svg";
+// import clock from "@/public/icons/clock.svg";
 
 const courses = [
     {
@@ -34,7 +36,7 @@ const courses = [
 const Description = () => {
     return (
         <div className='px-5 '>
-            <div className="w-full max-w-[1313px] mx-auto flex">
+            <div className="w-full max-w-[1313px] mx-auto flex justify-between">
 
                 {/* description */}
                 <div className="w-full max-w-[792px] px-4 py-7  border-[0.5px] border-black rounded-[20px] my-12">
@@ -108,7 +110,28 @@ const Description = () => {
                 </div>
 
                 {/* register */}
-                <div className=""></div>
+                <div className="w-full max-w-[401px] px-4 py-5  border-[0.5px] border-black rounded-[20px]">
+                    <Image className='w-full max-h-[183px] object-cover rounded-[10px]' src={course1} alt="course1" />
+
+                    <Button className='bg-accent  mx-auto h-[47px] rounded-[7px] my-5 text-[17px]'>Login/Register</Button>
+
+                    <div className="flex justify-center gap-5">
+                        <div className="flex gap-1 items-center">
+                            <Image className='' src={heart} alt="heart" width={13} height={12} />
+                            <Text className='text-[8px] text-[#00000080] leading-[100%]'>Add to Wishlist</Text>
+                        </div>
+                        <div className="flex gap-1 items-center">
+                        <Image className='' src={share} alt="share" width={12} height={12} />
+                            <Text className='text-[8px] text-[#00000080] leading-[100%]'>Share</Text>
+                        </div>
+                    </div>
+
+<Text className='text-[11px] text-[#00000080] font-bold  my-6'>30-Day Money-Back Guarantee</Text>
+
+<Text className='text-[11px] text-[#00000080] font-bold'>Course Details</Text>
+<hr className='h-[1.7px] w-full bg-black/40 my-2' />
+
+                </div>
 
             </div>
 

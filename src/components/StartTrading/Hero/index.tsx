@@ -18,9 +18,10 @@ const Hero = () => {
                     <Text as='h1' className='text-[36px] text-white  mt-10' >
                         Start Trading Course Now... Quick  & Dirty
                     </Text>
-                    <Text className='text-[14px] text-white leading-[133%] font-normal mt-2' >
-                        Ready to dive into the trading world? If you are eager to embark on a trading journey, our "Start Trading Now... <span className='text-[#7B6FFE]'> Show more</span>
-                    </Text>
+                    <Text className='text-[14px] text-white leading-[133%] font-normal mt-2'>
+  Ready to dive into the trading world? If you are eager to embark on a trading journey, our &quot;Start Trading Now... <span className='text-[#7B6FFE]'> Show more</span>
+</Text>
+
 
                     <div className="flex max-w-[500px] flex-wrap items-center justify-between gap-10 mt-8">
                         <div className="flex items-center gap-2">
