@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import Button from "../ui/Button";
 import { cn } from "@/lib/utils";
 import Drawer from "../ui/Drawer";
+import SidebarUser from "../SidebarUser";
 // import logo from "../../../public/logo.svg";
 // import linkedinsvg from "../../../public/linkedin.svg";
 // import linkedinsvgmob from "../../../public/linkedin1.svg";
@@ -72,9 +73,8 @@ const Navbar = () => {
                   <Link
                     href="trading-courses"
                     onClick={() => handleTabChange("#")}
-                    className={`block text-[14px] font-helvitica font-bold leading-[100%] text-white ${
-                      activeTab === "#" ? " " : "text-white"
-                    }`}
+                    className={`block text-[14px] font-helvitica font-bold leading-[100%] text-white ${activeTab === "#" ? " " : "text-white"
+                      }`}
                   >
                     Trading Courses
                   </Link>
@@ -83,9 +83,8 @@ const Navbar = () => {
                   <Link
                     href="trading-guides"
                     onClick={() => handleTabChange("/product-and-services")}
-                    className={`block text-[14px] font-helvitica font-bold leading-[100%] text-white ${
-                      activeTab === "#" ? " " : "text-white"
-                    }`}
+                    className={`block text-[14px] font-helvitica font-bold leading-[100%] text-white ${activeTab === "#" ? " " : "text-white"
+                      }`}
                   >
                     Trading Guides
                   </Link>
@@ -94,9 +93,8 @@ const Navbar = () => {
                   <Link
                     href="/about-us"
                     onClick={() => handleTabChange("/news")}
-                    className={`block text-[14px] font-helvitica font-bold leading-[100%] text-white ${
-                      activeTab === "#" ? " " : "text-white"
-                    }`}
+                    className={`block text-[14px] font-helvitica font-bold leading-[100%] text-white ${activeTab === "#" ? " " : "text-white"
+                      }`}
                   >
                     About Us
                   </Link>
@@ -105,9 +103,8 @@ const Navbar = () => {
                   <Link
                     href="/contact-us"
                     onClick={() => handleTabChange("/awareness-and-advocacy")}
-                    className={`block text-[14px] font-helvitica font-bold leading-[100%] text-white ${
-                      activeTab === "#" ? " " : "text-white"
-                    }`}
+                    className={`block text-[14px] font-helvitica font-bold leading-[100%] text-white ${activeTab === "#" ? " " : "text-white"
+                      }`}
                   >
                     Contact Us
                   </Link>
@@ -132,6 +129,8 @@ const Navbar = () => {
                     Get Started
                   </Button>
                 </Link>
+
+                <SidebarUser />
               </div>
               {/* dekstop navbar */}
 
@@ -179,9 +178,8 @@ const Navbar = () => {
                         href={path}
                         key={path}
                         onClick={() => handleTabChange(path)}
-                        className={`block text-[14px] font-helvitica font-bold leading-[100%] text-white  ${
-                          activeTab === path ? "text-white" : "text-white"
-                        }`}
+                        className={`block text-[14px] font-helvitica font-bold leading-[100%] text-white  ${activeTab === path ? "text-white" : "text-white"
+                          }`}
                       >
                         <li className="flex justify-start py-[15px] list-items mob:px-[25px]">
                           {path === "/" ? "Home" : path.slice(1).toUpperCase()}
