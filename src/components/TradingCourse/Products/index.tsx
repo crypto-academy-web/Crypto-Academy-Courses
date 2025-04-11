@@ -142,7 +142,7 @@ const Products = () => {
         <div className='w-full px-5'>
             <div className="max-w-[1313px] mx-auto w-full">
                 <div className="flex justify-between">
-                    <Text as='h1' className='text-black text-[36px]'>
+                    <Text as='h1' className='text-black text-[36px] mob:hidden'>
                         Trading Courses
                     </Text>
 
@@ -173,11 +173,15 @@ const Products = () => {
                     </div>
                 </div>
 
-                <Text className='text-[14px] font-helvetica font-normal leading-[133%] max-w-[1187px] my-8'>
+                <Text as='h1' className='text-black text-[36px] mob:block hidden mt-8'>
+                        Trading Courses
+                    </Text>
+
+                <Text className='text-[14px] font-helvetica font-normal leading-[133%] max-w-[1187px] my-8 mob:my-4'>
                     Unlock your trading potential with AvaAcademy! Register for free and gain exclusive access to advanced courses on trading platforms, asset classes, online strategies, and more. Dive deep into the world of trading with expert insights on fundamental and technical analysis, risk management, and the dynamics of financial markets. Start your comprehensive trading education journey today!
                 </Text>
 
-                <div className="flex justify-end w-full gap-12 mt-14">
+                <div className="flex mob:flex-wrap mob:justify-center justify-end w-full gap-12 mt-14">
                     {/* filter */}
                     <div className="w-full max-w-[251px]">
                         <SideCategory />

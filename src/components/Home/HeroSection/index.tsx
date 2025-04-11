@@ -13,7 +13,7 @@ const HeroSection = () => {
     const [initialView, setInitialView] = useState<'login' | 'getStarted'>('login');
 
     return (
-        <div className='min-h-[638px] h-screen mob:h-full bg-accent px-5 flex items-center relative'>
+        <div className='min-h-[638px] h-screen mob:h-full bg-accent px-5 flex items-center relative mob:mt-0 mt-[-80px]'>
             <div className="w-full flex flex-wrap gap-16 max-w-[1313px] mx-auto mob:mt-[150px]">
                 <div className="max-w-[423px] relative z-10">
                     <Text as='h1'>Crypto Academy</Text>
