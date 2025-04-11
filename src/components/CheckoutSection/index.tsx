@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-
 import Text from "../ui/Text";
 import PlaceOrder from "./PlaceOrder";
 
