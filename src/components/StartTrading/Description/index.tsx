@@ -7,6 +7,13 @@ import Text from '@/components/ui/Text'
 import course1 from "@/public/images/home/course1.png";
 import heart from "@/public/icons/heart.svg";
 import share from "@/public/icons/share.svg";
+import time from "@/public/images/start-trading/time.png";
+import book from "@/public/images/start-trading/book.png";
+import video from "@/public/images/start-trading/video.png";
+import quiz from "@/public/images/start-trading/quiz.png";
+import level from "@/public/images/start-trading/level.png";
+import fullvid from "@/public/images/start-trading/video.png";
+import tv from "@/public/images/start-trading/tv.png";
 // import clock from "@/public/icons/clock.svg";
 
 const courses = [
@@ -33,10 +40,11 @@ const courses = [
     },
 
 ];
+
 const Description = () => {
     return (
         <div className='px-5 '>
-            <div className="w-full max-w-[1313px] mx-auto flex justify-between">
+            <div className="w-full max-w-[1313px] mx-auto flex tab:flex-wrap gap-10 mob:gap-5 justify-between">
 
                 {/* description */}
                 <div className="w-full max-w-[792px] px-4 py-7  border-[0.5px] border-black rounded-[20px] my-12">
@@ -55,11 +63,11 @@ const Description = () => {
                     <Text as='h2' className='text-[21px] leading-[20px] ' >What We Will Learn:
 
                         <ul className='mt-3 list-disc pl-5 text-[16px] font-normal leading-[144%]'>
-                            <li><span className='font-medium'>Fundamental Ties:</span> Link your financial understanding to trading essentials, seamlessly.</li>
-                            <li><span className='font-medium'>Forex Unveiled:</span> Demystify foreign exchange markets and learn safe, accessible trading techniques.</li>
-                            <li><span className='font-medium'>Smart Instrument Use:</span> Grasp the convenience of Contracts for Difference (CFDs) in financial markets.</li>
-                            <li><span className='font-medium'>Market Mastery:</span> Dive into market orders for strategic investment decisions.</li>
-                            <li><span className='font-medium'>Analytical Insights:</span> Extract valuable insights from financial analysis.</li>
+                            <li><span className='font-bold'>Fundamental Ties:</span> Link your financial understanding to trading essentials, seamlessly.</li>
+                            <li><span className='font-bold'>Forex Unveiled:</span> Demystify foreign exchange markets and learn safe, accessible trading techniques.</li>
+                            <li><span className='font-bold'>Smart Instrument Use:</span> Grasp the convenience of Contracts for Difference (CFDs) in financial markets.</li>
+                            <li><span className='font-bold'>Market Mastery:</span> Dive into market orders for strategic investment decisions.</li>
+                            <li><span className='font-bold'>Analytical Insights:</span> Extract valuable insights from financial analysis.</li>
                         </ul>
                     </Text>
                     <Text as='h2' className='text-[21px] leading-[20px] mt-8 ' >Level:
@@ -110,7 +118,8 @@ const Description = () => {
                 </div>
 
                 {/* register */}
-                <div className="w-full max-w-[401px] px-4 py-5  border-[0.5px] border-black rounded-[20px]">
+                <div className="w-full max-w-[401px] mt-[-250px] xl:mt-[50px] tab:mt-[0px] tab:mb-[40px]">
+                <div className="w-full max-w-[401px] px-4 py-5 bg-white border-[0.5px] border-black rounded-[20px]">
                     <Image className='w-full max-h-[183px] object-cover rounded-[10px]' src={course1} alt="course1" />
 
                     <Button className='bg-accent  mx-auto h-[47px] rounded-[7px] my-5 text-[17px]'>Login/Register</Button>
@@ -121,16 +130,73 @@ const Description = () => {
                             <Text className='text-[8px] text-[#00000080] leading-[100%]'>Add to Wishlist</Text>
                         </div>
                         <div className="flex gap-1 items-center">
-                        <Image className='' src={share} alt="share" width={12} height={12} />
+                            <Image className='' src={share} alt="share" width={12} height={12} />
                             <Text className='text-[8px] text-[#00000080] leading-[100%]'>Share</Text>
                         </div>
                     </div>
 
-<Text className='text-[11px] text-[#00000080] font-bold  my-6'>30-Day Money-Back Guarantee</Text>
+                    <Text className='text-[11px] text-[#00000080] font-bold  my-6'>30-Day Money-Back Guarantee</Text>
 
-<Text className='text-[11px] text-[#00000080] font-bold'>Course Details</Text>
-<hr className='h-[1.7px] w-full bg-black/40 my-2' />
+                    <Text className='text-[11px] text-[#00000080] font-bold'>Course Details</Text>
+                    <hr className='h-[1.7px] w-full bg-black/40 mb-3 mt-2' />
 
+                    <div className="flex items-center justify-between">
+                        <div className="flex gap-1 items-center">
+                            <Image className='w-[12px] h-[12px]' src={time} alt="share" width={12} height={12} />
+                            <Text className='text-[10px] text-[#000000] leading-[100%] '>Duration</Text>
+                        </div>
+                        <Text className='text-[10px]  leading-[100%] font-bold'>80 minutes</Text>
+                    </div>
+
+                    <hr className='h-[1.7px] w-full bg-black/40 mb-3 mt-2' />
+                    <div className="flex items-center justify-between">
+                        <div className="flex gap-1 items-center">
+                            <Image className='w-[12px] h-[12px]' src={book} alt="share" width={12} height={12} />
+                            <Text className='text-[10px] text-[#000000] leading-[100%] '>Lectures</Text>
+                        </div>
+                        <Text className='text-[10px]  leading-[100%] font-bold'>23</Text>
+                    </div>
+
+                    <hr className='h-[1.7px] w-full bg-black/40 mb-3 mt-2' />
+                    <div className="flex items-center justify-between">
+                        <div className="flex gap-1 items-center">
+                            <Image className='w-[12px] h-[12px]' src={video} alt="share" width={12} height={12} />
+                            <Text className='text-[10px] text-[#000000] leading-[100%] '>Videos</Text>
+                        </div>
+                        <Text className='text-[10px]  leading-[100%] font-bold'>43 minutes</Text>
+                    </div>
+                    <hr className='h-[1.7px] w-full bg-black/40 mb-3 mt-2' />
+                    <div className="flex items-center justify-between">
+                        <div className="flex gap-1 items-center">
+                            <Image className='w-[12px] h-[12px]' src={quiz} alt="share" width={12} height={12} />
+                            <Text className='text-[10px] text-[#000000] leading-[100%] '>Quizzes</Text>
+                        </div>
+                        <Text className='text-[10px]  leading-[100%] font-bold'>9</Text>
+                    </div>
+                    <hr className='h-[1.7px] w-full bg-black/40 mb-3 mt-2' />
+                    <div className="flex items-center justify-between">
+                        <div className="flex gap-1 items-center">
+                            <Image className='w-[12px] h-[12px]' src={level} alt="share" width={12} height={12} />
+                            <Text className='text-[10px] text-[#000000] leading-[100%] '>Level</Text>
+                        </div>
+                        <Text className='text-[10px]  leading-[100%] font-bold'>Beginner</Text>
+                    </div>
+                    <hr className='h-[1.7px] w-full bg-black/40 mb-3 mt-2' />
+                    <div className="flex items-center justify-between">
+                        <div className="flex gap-1 items-center">
+                            <Image className='w-[12px] h-[12px]' src={fullvid} alt="share" width={12} height={12} />
+                            <Text className='text-[10px] text-[#000000] leading-[100%] '>Full-LifeTime Access</Text>
+                        </div>
+                    </div>
+                    <hr className='h-[1.7px] w-full bg-black/40 mb-3 mt-2' />
+                    <div className="flex items-center justify-between">
+                        <div className="flex gap-1 items-center">
+                            <Image className='w-[12px] h-[12px]' src={tv} alt="share" width={12} height={12} />
+                            <Text className='text-[10px] text-[#000000] leading-[100%] '>Access on mobile and TV</Text>
+                        </div>
+                    </div>
+
+                </div>
                 </div>
 
             </div>

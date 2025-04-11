@@ -36,7 +36,7 @@ const Footer = () => {
             </div>
             <div className="flex gap-[12px] mb-[19px]">
               <Text className="text-white text-[13px] font-bold">{`>`}</Text>
-              <Link href="about-us">
+              <Link href="/about-us">
                 <Text className="text-white text-[13px] font-bold">
                   About Us
                 </Text>
@@ -44,7 +44,7 @@ const Footer = () => {
             </div>
             <div className="flex gap-[12px] mb-[19px]">
               <Text className="text-white text-[13px] font-bold">{`>`}</Text>
-              <Link href="contact-us">
+              <Link href="/contact-us">
                 <Text className="text-white text-[13px] font-bold">
                   Contact Us
                 </Text>
@@ -52,7 +52,7 @@ const Footer = () => {
             </div>
             <div className="flex gap-[12px]">
               <Text className="text-white text-[13px] font-bold">{`>`}</Text>
-              <Link href="#">
+              <Link href="/trading-courses">
                 <Text className="text-white text-[13px] font-bold">
                   Trading Courses
                 </Text>
@@ -95,11 +95,11 @@ const Footer = () => {
             <Text className="text-white text-[18px] mb-8 font-bold">
               Legal Documents
             </Text>
-            <Text className="text-white text-[13px]">Terms & Conditions</Text>
-            <Text className="text-white text-[13px]">Cookie Policy</Text>
-            <Text className="text-white text-[13px]">Risk Disclosure</Text>
-            <Text className="text-white text-[13px]">Privacy Policy</Text>
-            <Text className="text-white text-[13px]">Terms of Use</Text>
+            <Text className="text-white text-[13px] mb-[2px]">Terms & Conditions</Text>
+            <Text className="text-white text-[13px] mb-[2px]">Cookie Policy</Text>
+            <Text className="text-white text-[13px] mb-[2px]">Risk Disclosure</Text>
+            <Text className="text-white text-[13px] mb-[2px]">Privacy Policy</Text>
+            <Text className="text-white text-[13px] mb-[2px]">Terms of Use</Text>
           </div>
         </div>
       </div>

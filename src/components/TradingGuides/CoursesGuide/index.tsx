@@ -71,7 +71,7 @@ const CoursesGuide = () => {
                             </Text>
                         </div>
 
-                        <div className="w-[47px] h-[4.3px] bg-primary mt-8"></div>
+                        {/* <div className="w-[47px] h-[4.3px] bg-primary mt-8"></div> */}
 
                         <div className="flex items-center gap-1 mt-10">
                             <div className="w-[69px] h-[4.3px] bg-accent"></div>

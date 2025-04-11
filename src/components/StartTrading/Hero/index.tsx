@@ -18,16 +18,16 @@ const Hero = () => {
                     <Text as='h1' className='text-[36px] text-white  mt-10' >
                         Start Trading Course Now... Quick  & Dirty
                     </Text>
-                    <Text className='text-[14px] text-white leading-[133%] font-normal mt-2'>
-  Ready to dive into the trading world? If you are eager to embark on a trading journey, our &quot;Start Trading Now... <span className='text-[#7B6FFE]'> Show more</span>
-</Text>
+                    <Text className='text-[14px] text-white/80 leading-[133%] font-normal mt-2'>
+                        Ready to dive into the trading world? If you are eager to embark on a trading journey, our &quot;Start Trading Now... <span className='text-[#7B6FFE]'> Show more</span>
+                    </Text>
 
 
                     <div className="flex max-w-[500px] flex-wrap items-center justify-between gap-10 mt-8">
                         <div className="flex items-center gap-2">
                             <Image src={category} alt="category" width={28} height={36} />
                             <div className="">
-                                <Text className='text-[14px] text-white/70 leading-[20px] font-bold ' >
+                                <Text className='text-[14px] text-white/70 leading-[20px] font-medium ' >
                                     Category
                                 </Text>
                                 <Text className='text-[16px] text-white leading-[20px] font-bold mt-1' >
@@ -38,7 +38,7 @@ const Hero = () => {
                         <div className="flex items-center gap-2">
                             <Image src={enrolled} alt="category" width={28} height={36} />
                             <div className="">
-                                <Text className='text-[14px] text-white/70 leading-[20px] font-bold ' >
+                                <Text className='text-[14px] text-white/70 leading-[20px] font-medium ' >
                                     Students Enrolled
                                 </Text>
                                 <Text className='text-[16px] text-white leading-[20px] font-bold mt-1' >
