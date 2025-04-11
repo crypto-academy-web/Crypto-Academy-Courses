@@ -9,6 +9,7 @@ import searchbar from "@/public/icons/searchbar.svg";
 import course1 from "@/public/images/home/course1.png";
 import clock from "@/public/icons/clock.svg";
 import Button from '@/components/ui/Button';
+import Link from 'next/link';
 
 const courses = [
     {
@@ -186,7 +187,7 @@ const Products = () => {
                     <div className="">
                         <div className="w-full max-w-[914px] flex flex-wrap items-center mob:justify-center gap-12">
                             {courses.slice(0, visibleCourses).map((course, index) => (
-                                <div key={index} className="w-[272.07px] rounded-[20px] course-shadow relative">
+                                <Link href="/start-trading-course" key={index} className="w-[272.07px] rounded-[20px] course-shadow relative">
                                     <button className='bg-[#FF0000] w-[39px] h-[21px] rounded-[3px] absolute top-[15px] right-[15px] uppercase text-[9px] font-helvetica font-normal text-white'>HOT</button>
                                     <Image
                                         className="w-full h-[154px] object-cover rounded-t-[20px]"
@@ -210,7 +211,7 @@ const Products = () => {
                                             <Text className="text-[12px] font-bold">{course.price}</Text>
                                         </div>
                                     </div>
-                                </div>
+                                </Link>
                             ))}
                         </div>
 
