@@ -4,6 +4,8 @@ import Text from '@/components/ui/Text'
 import CheckoutSection from '@/components/CheckoutSection'
 
 const Checkoutpage = () => {
+
+  
   return (
     <div>
       <div className="w-full px-5 bg-[#F6F6F6] h-[44px] mb-[68px] flex items-center">

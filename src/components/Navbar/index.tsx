@@ -8,6 +8,8 @@ import Button from "../ui/Button";
 import { cn } from "@/lib/utils";
 import Drawer from "../ui/Drawer";
 import Modal from "../ui/Modal";
+import { useUser, useUserId } from "@/app/store/user";
+import LogOutButton from "../Auth/Logout";
 // import logo from "../../../public/logo.svg";
 // import linkedinsvg from "../../../public/linkedin.svg";
 // import linkedinsvgmob from "../../../public/linkedin1.svg";
@@ -24,6 +26,9 @@ const navLinksMob = [
 
 
 const Navbar = () => {
+  const userId = useUserId()
+  const user = useUser()
+
   const [isOpen, setIsOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("/");
 
@@ -154,28 +159,37 @@ const Navbar = () => {
             </ul>
 
             <div className="flex items-center gap-4 xl:hidden">
-              <div
-                onClick={() => {
-                  setInitialView('login');
-                  setIsOpenModal(true);
-                }}
-                className="w-[109px] "
-              >
-                <Button className="border-accent">Login</Button>
-              </div>
+              {userId ? (
+                <div className=" flex gap-4 items-center">
+                  <Button className="w-[124px] rounded-[30px] text-white border-accent bg-accent cursor-text">Hey, {user?.firstName}</Button>
+                  <LogOutButton className="w-[124px] rounded-[30px] text-white border-accent bg-accent "/>
 
-              <div
-                className="w-[109px]"
-                onClick={() => {
-                  setInitialView('getStarted');
-                  setIsOpenModal(true);
-                }}
+                </div>
+              ) : (
+                <>
+                  <div
+                    onClick={() => {
+                      setInitialView('login')
+                      setIsOpenModal(true)
+                    }}
+                    className="w-[109px]"
+                  >
+                    <Button className="border-accent">Login</Button>
+                  </div>
 
-              >
-                <Button className="max-w-[124px] text-white border-accent bg-accent">
-                  Get Started
-                </Button>
-              </div>
+                  <div
+                    className="w-[109px]"
+                    onClick={() => {
+                      setInitialView('getStarted')
+                      setIsOpenModal(true)
+                    }}
+                  >
+                    <Button className="max-w-[124px] text-white border-accent bg-accent">
+                      Get Started
+                    </Button>
+                  </div>
+                </>
+              )}
 
 
               <Modal isOpenModal={isOpenModal} onClose={() => setIsOpenModal(false)} initialView={initialView} />
