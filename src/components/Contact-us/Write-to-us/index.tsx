@@ -1,9 +1,10 @@
 import React from "react";
 
 import Text from "@/components/ui/Text";
+import Button from "@/components/ui/Button";
 
 const WriteUs = () => {
-  
+
   return (
     <div className="w-full flex justify-center items-center">
       <div className=" w-full max-w-[1242px] px-5">
@@ -23,9 +24,13 @@ const WriteUs = () => {
           />
         </div>
         <textarea
-          className="bg-[#202630]/10 w-full h-[260px] p-[30px] focus:outline-none mb-[73px]"
+          className="bg-[#202630]/10 w-full h-[260px] p-[30px] focus:outline-none mb-[45px]"
           placeholder="Your Message"
         />
+
+        <div className="flex justify-end">
+          <Button className="max-w-[186px] bg-primary h-[46px] rounded-[7px] mb-[45px]"> Submit </Button>
+        </div>
       </div>
     </div>
   );

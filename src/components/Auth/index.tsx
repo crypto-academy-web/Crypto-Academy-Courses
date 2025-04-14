@@ -15,6 +15,7 @@ interface AuthProps {
     initialView: 'login' | 'getStarted'; // 👈 new prop
 }
 
+
 const Auth: React.FC<AuthProps> = ({ initialView }) => {
 
     const [selected, setSelected] = useState<'login' | 'getStarted'>(initialView);
