@@ -14,8 +14,13 @@ import { auth, db } from '@/firebase'
 import { useUserStore } from '@/app/store/user'
 import { doc, getDoc } from 'firebase/firestore'
 
-const LoginForm = () => {
+interface LoginFormProps {
+    onClose: () => void;
+  }
 
+  const LoginForm: React.FC<LoginFormProps> = ({ onClose }) => {
+
+    const currentPath = window.location.pathname;
     const [loginEmail, setLoginEmail] = useState<string>("");
     const [loginPassword, setLoginPassword] = useState<string>("");
     const [, setLoginError] = useState<string>("");
@@ -47,7 +52,12 @@ const LoginForm = () => {
             });
       
             alert("Login successful");
-            router.push("/my-account");
+            if (currentPath === "/checkout") {
+               onClose(); // Close the modal if it's open
+              } else {
+                router.push("/my-account");
+                onClose();
+              }
           } else {
             alert("User document does not exist.");
           }

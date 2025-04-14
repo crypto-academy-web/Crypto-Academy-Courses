@@ -119,84 +119,84 @@ const Description = () => {
 
                 {/* register */}
                 <div className="w-full max-w-[401px] mt-[-250px] xl:mt-[50px] tab:mt-[0px] tab:mb-[40px]">
-                <div className="w-full max-w-[401px] px-4 py-5 bg-white border-[0.5px] border-black rounded-[20px]">
-                    <Image className='w-full max-h-[183px] object-cover rounded-[10px]' src={course1} alt="course1" />
+                    <div className="w-full max-w-[401px] px-4 py-5 bg-white border-[0.5px] border-black rounded-[20px]">
+                        <Image className='w-full max-h-[183px] object-cover rounded-[10px]' src={course1} alt="course1" />
 
-                    <Button className='bg-accent  mx-auto h-[47px] rounded-[7px] my-5 text-[17px]'>Login/Register</Button>
+                        {/* <Button className='bg-accent  mx-auto h-[47px] rounded-[7px]   text-[17px]'>Login/Register</Button> */}
 
-                    <div className="flex justify-center gap-5">
-                        <div className="flex gap-1 items-center">
-                            <Image className='' src={heart} alt="heart" width={13} height={12} />
-                            <Text className='text-[8px] text-[#00000080] leading-[100%]'>Add to Wishlist</Text>
+                        <div className="flex justify-center gap-5 mt-5">
+                            <div className="flex gap-1 items-center">
+                                <Image className='' src={heart} alt="heart" width={13} height={12} />
+                                <Text className='text-[8px] text-[#00000080] leading-[100%]'>Add to Wishlist</Text>
+                            </div>
+                            <div className="flex gap-1 items-center">
+                                <Image className='' src={share} alt="share" width={12} height={12} />
+                                <Text className='text-[8px] text-[#00000080] leading-[100%]'>Share</Text>
+                            </div>
                         </div>
-                        <div className="flex gap-1 items-center">
-                            <Image className='' src={share} alt="share" width={12} height={12} />
-                            <Text className='text-[8px] text-[#00000080] leading-[100%]'>Share</Text>
-                        </div>
-                    </div>
 
-                    <Text className='text-[11px] text-[#00000080] font-bold  my-6'>30-Day Money-Back Guarantee</Text>
+                        <Text className='text-[11px] text-[#00000080] font-bold  my-6'>30-Day Money-Back Guarantee</Text>
 
-                    <Text className='text-[11px] text-[#00000080] font-bold'>Course Details</Text>
-                    <hr className='h-[1.7px] w-full bg-black/40 mb-3 mt-2' />
+                        <Text className='text-[11px] text-[#00000080] font-bold'>Course Details</Text>
+                        <hr className='h-[1.7px] w-full bg-black/40 mb-3 mt-2' />
 
-                    <div className="flex items-center justify-between">
-                        <div className="flex gap-1 items-center">
-                            <Image className='w-[12px] h-[12px]' src={time} alt="share" width={12} height={12} />
-                            <Text className='text-[10px] text-[#000000] leading-[100%] '>Duration</Text>
+                        <div className="flex items-center justify-between">
+                            <div className="flex gap-1 items-center">
+                                <Image className='w-[12px] h-[12px]' src={time} alt="share" width={12} height={12} />
+                                <Text className='text-[10px] text-[#000000] leading-[100%] '>Duration</Text>
+                            </div>
+                            <Text className='text-[10px]  leading-[100%] font-bold'>80 minutes</Text>
                         </div>
-                        <Text className='text-[10px]  leading-[100%] font-bold'>80 minutes</Text>
-                    </div>
 
-                    <hr className='h-[1.7px] w-full bg-black/40 mb-3 mt-2' />
-                    <div className="flex items-center justify-between">
-                        <div className="flex gap-1 items-center">
-                            <Image className='w-[12px] h-[12px]' src={book} alt="share" width={12} height={12} />
-                            <Text className='text-[10px] text-[#000000] leading-[100%] '>Lectures</Text>
+                        <hr className='h-[1.7px] w-full bg-black/40 mb-3 mt-2' />
+                        <div className="flex items-center justify-between">
+                            <div className="flex gap-1 items-center">
+                                <Image className='w-[12px] h-[12px]' src={book} alt="share" width={12} height={12} />
+                                <Text className='text-[10px] text-[#000000] leading-[100%] '>Lectures</Text>
+                            </div>
+                            <Text className='text-[10px]  leading-[100%] font-bold'>23</Text>
                         </div>
-                        <Text className='text-[10px]  leading-[100%] font-bold'>23</Text>
-                    </div>
 
-                    <hr className='h-[1.7px] w-full bg-black/40 mb-3 mt-2' />
-                    <div className="flex items-center justify-between">
-                        <div className="flex gap-1 items-center">
-                            <Image className='w-[12px] h-[12px]' src={video} alt="share" width={12} height={12} />
-                            <Text className='text-[10px] text-[#000000] leading-[100%] '>Videos</Text>
+                        <hr className='h-[1.7px] w-full bg-black/40 mb-3 mt-2' />
+                        <div className="flex items-center justify-between">
+                            <div className="flex gap-1 items-center">
+                                <Image className='w-[12px] h-[12px]' src={video} alt="share" width={12} height={12} />
+                                <Text className='text-[10px] text-[#000000] leading-[100%] '>Videos</Text>
+                            </div>
+                            <Text className='text-[10px]  leading-[100%] font-bold'>43 minutes</Text>
                         </div>
-                        <Text className='text-[10px]  leading-[100%] font-bold'>43 minutes</Text>
-                    </div>
-                    <hr className='h-[1.7px] w-full bg-black/40 mb-3 mt-2' />
-                    <div className="flex items-center justify-between">
-                        <div className="flex gap-1 items-center">
-                            <Image className='w-[12px] h-[12px]' src={quiz} alt="share" width={12} height={12} />
-                            <Text className='text-[10px] text-[#000000] leading-[100%] '>Quizzes</Text>
+                        <hr className='h-[1.7px] w-full bg-black/40 mb-3 mt-2' />
+                        <div className="flex items-center justify-between">
+                            <div className="flex gap-1 items-center">
+                                <Image className='w-[12px] h-[12px]' src={quiz} alt="share" width={12} height={12} />
+                                <Text className='text-[10px] text-[#000000] leading-[100%] '>Quizzes</Text>
+                            </div>
+                            <Text className='text-[10px]  leading-[100%] font-bold'>9</Text>
                         </div>
-                        <Text className='text-[10px]  leading-[100%] font-bold'>9</Text>
-                    </div>
-                    <hr className='h-[1.7px] w-full bg-black/40 mb-3 mt-2' />
-                    <div className="flex items-center justify-between">
-                        <div className="flex gap-1 items-center">
-                            <Image className='w-[12px] h-[12px]' src={level} alt="share" width={12} height={12} />
-                            <Text className='text-[10px] text-[#000000] leading-[100%] '>Level</Text>
+                        <hr className='h-[1.7px] w-full bg-black/40 mb-3 mt-2' />
+                        <div className="flex items-center justify-between">
+                            <div className="flex gap-1 items-center">
+                                <Image className='w-[12px] h-[12px]' src={level} alt="share" width={12} height={12} />
+                                <Text className='text-[10px] text-[#000000] leading-[100%] '>Level</Text>
+                            </div>
+                            <Text className='text-[10px]  leading-[100%] font-bold'>Beginner</Text>
                         </div>
-                        <Text className='text-[10px]  leading-[100%] font-bold'>Beginner</Text>
-                    </div>
-                    <hr className='h-[1.7px] w-full bg-black/40 mb-3 mt-2' />
-                    <div className="flex items-center justify-between">
-                        <div className="flex gap-1 items-center">
-                            <Image className='w-[12px] h-[12px]' src={fullvid} alt="share" width={12} height={12} />
-                            <Text className='text-[10px] text-[#000000] leading-[100%] '>Full-LifeTime Access</Text>
+                        <hr className='h-[1.7px] w-full bg-black/40 mb-3 mt-2' />
+                        <div className="flex items-center justify-between">
+                            <div className="flex gap-1 items-center">
+                                <Image className='w-[12px] h-[12px]' src={fullvid} alt="share" width={12} height={12} />
+                                <Text className='text-[10px] text-[#000000] leading-[100%] '>Full-LifeTime Access</Text>
+                            </div>
                         </div>
-                    </div>
-                    <hr className='h-[1.7px] w-full bg-black/40 mb-3 mt-2' />
-                    <div className="flex items-center justify-between">
-                        <div className="flex gap-1 items-center">
-                            <Image className='w-[12px] h-[12px]' src={tv} alt="share" width={12} height={12} />
-                            <Text className='text-[10px] text-[#000000] leading-[100%] '>Access on mobile and TV</Text>
+                        <hr className='h-[1.7px] w-full bg-black/40 mb-3 mt-2' />
+                        <div className="flex items-center justify-between">
+                            <div className="flex gap-1 items-center">
+                                <Image className='w-[12px] h-[12px]' src={tv} alt="share" width={12} height={12} />
+                                <Text className='text-[10px] text-[#000000] leading-[100%] '>Access on mobile and TV</Text>
+                            </div>
                         </div>
-                    </div>
 
-                </div>
+                    </div>
                 </div>
 
             </div>

@@ -1,12 +1,18 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 // import Image from "next/image";
 
+import course1 from "@/public/images/home/course1.png"
+
 import Text from "@/components/ui/Text";
+import { useCourseStore } from "@/app/store/useCourseStore";
 
 // import sample from "@/public/icons/heart.svg"
 
 const PlaceOrder = () => {
+  const { selectedCourse } = useCourseStore();
+
   return (
     <div className="w-full bg-[#F0F0F0] rounded-[13.48px] mt-5 px-[30px] py-[45px]">
       <Text
@@ -17,19 +23,19 @@ const PlaceOrder = () => {
       </Text>
 
       {/* Static Example Product */}
-      <div className="flex items-center gap-[55px] my-4">
-        {/* <Image
+      <div className="flex items-center justify-between gap-[55px] my-4">
+        <Image
           className="rounded-lg"
-          src={sample} 
+          src={course1}
           alt="Product"
           width={64}
           height={64}
-        /> */}
+        />
         <Text
           as="p"
           className="text-[22px] text-[#000000] font-futuraBT font-normal"
         >
-          Sample Product
+          {selectedCourse?.title}
         </Text>
       </div>
 
@@ -44,7 +50,7 @@ const PlaceOrder = () => {
           as="p"
           className="text-[16px] text-[#575757] font-futuraBT font-normal"
         >
-          $25.00
+          ${selectedCourse?.amount}
         </Text>
       </div>
 
@@ -74,7 +80,7 @@ const PlaceOrder = () => {
           as="p"
           className="text-[16px] text-[#575757] font-futuraBT font-normal"
         >
-          $25.00
+        ${selectedCourse?.amount}
         </Text>
       </div>
 
@@ -106,7 +112,7 @@ const PlaceOrder = () => {
           as="p"
           className="text-[22px] text-[#000000] font-futuraBT font-normal"
         >
-          $25.00
+          ${selectedCourse?.amount}
         </Text>
       </div>
     </div>

@@ -24,7 +24,13 @@ type FormData = {
     password: string
 }
 
-const SignupForm: React.FC = () => {
+interface SignupFormProps {
+    onClose: () => void;
+  }
+
+const SignupForm: React.FC<SignupFormProps> = ({ onClose }) => {
+    const currentPath = window.location.pathname;
+
     const setUser = useUserStore((state) => state.setUser)
     const [formData, setFormData] = useState<FormData>({
         firstName: '',
@@ -72,7 +78,12 @@ const SignupForm: React.FC = () => {
 
             console.log('User created:', user)
             alert('Signup successful!')
-            router.push("/my-account");
+            if (currentPath === "/checkout") {
+               onClose(); // Close the modal if it's open
+              } else {
+                router.push("/my-account");
+                onClose();
+              }
 
         } catch (error: unknown) {
             if (error instanceof Error) {
