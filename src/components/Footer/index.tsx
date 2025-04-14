@@ -7,6 +7,7 @@ import Text from "../ui/Text";
 import call from "@/public/images/Footer/call.svg";
 import location from "@/public/images/Footer/location.svg";
 import mail from "@/public/images/Footer/mail.svg";
+import arrow from "@/public/icons/arrow.svg"
 
 const Footer = () => {
   return (
@@ -29,13 +30,14 @@ const Footer = () => {
           <div>
             <Text className="text-white text-[18px] mb-6 font-bold">Pages</Text>
             <div className="flex gap-[12px] mb-[19px]">
-              <Text className="text-white text-[13px] font-bold">{`>`}</Text>
+              <Image src={arrow} alt="arrow" width={5} height={9} />
               <Link href="/">
                 <Text className="text-white text-[13px] font-bold">Home</Text>
               </Link>
             </div>
             <div className="flex gap-[12px] mb-[19px]">
-              <Text className="text-white text-[13px] font-bold">{`>`}</Text>
+              <Image src={arrow} alt="arrow" width={5} height={9} />
+
               <Link href="/about-us">
                 <Text className="text-white text-[13px] font-bold">
                   About Us
@@ -43,7 +45,8 @@ const Footer = () => {
               </Link>
             </div>
             <div className="flex gap-[12px] mb-[19px]">
-              <Text className="text-white text-[13px] font-bold">{`>`}</Text>
+              <Image src={arrow} alt="arrow" width={5} height={9} />
+
               <Link href="/contact-us">
                 <Text className="text-white text-[13px] font-bold">
                   Contact Us
@@ -51,7 +54,8 @@ const Footer = () => {
               </Link>
             </div>
             <div className="flex gap-[12px]">
-              <Text className="text-white text-[13px] font-bold">{`>`}</Text>
+              <Image src={arrow} alt="arrow" width={5} height={9} />
+
               <Link href="/trading-courses">
                 <Text className="text-white text-[13px] font-bold">
                   Trading Courses
