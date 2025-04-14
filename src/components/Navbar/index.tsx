@@ -9,7 +9,8 @@ import { cn } from "@/lib/utils";
 import Drawer from "../ui/Drawer";
 import Modal from "../ui/Modal";
 import { useUser, useUserId } from "@/app/store/user";
-import LogOutButton from "../Auth/Logout";
+// import LogOutButton from "../Auth/Logout";
+import DropDown from "./DropDown";
 // import logo from "../../../public/logo.svg";
 // import linkedinsvg from "../../../public/linkedin.svg";
 // import linkedinsvgmob from "../../../public/linkedin1.svg";
@@ -161,9 +162,9 @@ const Navbar = () => {
             <div className="flex items-center gap-4 xl:hidden">
               {userId ? (
                 <div className=" flex gap-4 items-center">
-                  <Button className="w-[124px] rounded-[30px] text-white border-accent bg-accent cursor-text">Hey, {user?.firstName}</Button>
-                  <LogOutButton className="w-[124px] rounded-[30px] text-white border-accent bg-accent "/>
-
+                  {/* <Button className="w-[124px] rounded-[30px] text-white border-accent bg-accent cursor-text">Hey, {user?.firstName}</Button> */}
+                  {/* <LogOutButton className="w-[124px] rounded-[30px] text-white border-accent bg-accent "/> */}
+                  <DropDown userName={user?.firstName} />
                 </div>
               ) : (
                 <>

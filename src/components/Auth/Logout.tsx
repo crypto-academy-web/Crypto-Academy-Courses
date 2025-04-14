@@ -4,7 +4,6 @@ import React from "react";
 import { useRouter } from "next/navigation";
 import { signOut } from "firebase/auth";
 import { auth } from "@/firebase";
-import Button from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 import { useUserStore } from "@/app/store/user"; // 🟡 import store
 
@@ -28,15 +27,15 @@ const LogOutButton: React.FC<LogOutProps> = ({ className }) => {
 
   return (
     <div>
-      <Button
+      <button
         className={cn(
-          "bg-accent text-white w-[200px] rounded-[12px]",
+          "group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10",
           className
         )}
         onClick={handleLogout}
       >
         Log Out
-      </Button>
+      </button>
     </div>
   );
 };

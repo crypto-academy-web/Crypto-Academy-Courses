@@ -1,35 +1,47 @@
-"use client"
-import Image from 'next/image'
+'use client'
+
 import React, { useEffect, useState } from 'react'
-import { doc, getDoc } from "firebase/firestore"
-
-// import ProtectedRoute from '@/components/Layouts/ProtectedRoutes'
-import clock from "@/public/icons/clock.svg"
-
-import Text from '@/components/ui/Text'
-import avatar from "@/public/images/myaccount/avatar.png"
-import Button from '@/components/ui/Button'
-
-import { useUser, useUserId } from '../store/user'
-import { db } from "@/firebase"
+import { doc, getDoc } from 'firebase/firestore'
 import { useRouter } from 'next/navigation'
+import { useUserId, useUser } from '../store/user'
+import { db } from '@/firebase'
 import { useCourseStore } from '../store/useCourseStore'
 import { Course } from '@/lib/constants/courses'
+import Text from '@/components/ui/Text'
+import Image from 'next/image'
+import Button from '@/components/ui/Button'
+
+import clock from "@/public/icons/clock.svg"
+import avatar from "@/public/images/myaccount/avatar.png"
+// Dummy loader component (you can replace with a spinner)
 
 const MyAccountPage = () => {
-  const user = useUser()
   const userId = useUserId()
-  const setSelectedCourse = useCourseStore((state) => state.setSelectedCourse)
+  const user = useUser()
   const router = useRouter()
+  const setSelectedCourse = useCourseStore((state) => state.setSelectedCourse)
 
   const [purchasedCourses, setPurchasedCourses] = useState<Course[]>([])
+  const [isCoursesLoading, setIsCoursesLoading] = useState(true)
 
+  const isUserLoading = userId === undefined // or use your auth loading state
+
+  // Redirect if user is not logged in
+  useEffect(() => {
+    if (!isUserLoading && !userId) {
+      router.push('/')
+    }
+  }, [isUserLoading, userId, router])
+
+  // Fetch purchased courses
   useEffect(() => {
     const fetchPurchasedCourses = async () => {
-      if (!userId) return;
+      if (!userId) return
+
+      setIsCoursesLoading(true)
 
       try {
-        const userRef = doc(db, "users", userId)
+        const userRef = doc(db, 'users', userId)
         const userSnap = await getDoc(userRef)
 
         if (userSnap.exists()) {
@@ -37,12 +49,19 @@ const MyAccountPage = () => {
           setPurchasedCourses(data.purchasedCourses || [])
         }
       } catch (error) {
-        console.error("Failed to fetch purchased courses:", error)
+        console.error('Failed to fetch purchased courses:', error)
+      } finally {
+        setIsCoursesLoading(false)
       }
     }
 
     fetchPurchasedCourses()
   }, [userId])
+
+  // ✅ Show loader if anything is still loading
+  // if (isUserLoading || isCoursesLoading) {
+  //   return <Loader />
+  // }
 
   return (
     <div>
@@ -84,20 +103,24 @@ const MyAccountPage = () => {
             <Text className='text-[36px] leading-[100%] font-bold mt-20'>My Profile</Text>
             <hr className='h-[2px] bg-black my-5' />
 
-            <div className="flex flex-wrap gap-[37px] mt-12 mob:justify-center">
-              {purchasedCourses.length === 0 ? (
+            <div className="flex flex-wrap gap-[37px] mt-12 mob:justify-center min-h-[200px]">
+              {isCoursesLoading ? (
+                <div className="w-full flex justify-center items-center">
+                  <p className="text-lg font-semibold">Loading courses...</p>
+                </div>
+              ) : purchasedCourses.length === 0 ? (
                 <Text className='text-[18px] text-gray-600'>No purchased courses yet.</Text>
               ) : (
                 purchasedCourses.map((course, index) => (
-                  <div key={index}
+                  <div
+                    key={index}
                     onClick={() => {
                       setSelectedCourse(course)
                       router.push('/start-trading-course')
                     }}
-                    className="w-[300px] rounded-[20px] course-shadow bg-white relative cursor-pointer">
-                    {/* {course.isHot && ( */}
-                      <button className='bg-[#FF0000] w-[39px] h-[21px] rounded-[3px] absolute top-[15px] right-[15px] uppercase text-[9px] text-white'>HOT</button>
-                    {/* )} */}
+                    className="w-[300px] rounded-[20px] course-shadow bg-white relative cursor-pointer"
+                  >
+                    <button className='bg-[#FF0000] w-[39px] h-[21px] rounded-[3px] absolute top-[15px] right-[15px] uppercase text-[9px] text-white'>HOT</button>
                     <Image
                       className="w-full h-[154px] object-cover rounded-t-[20px]"
                       src={course.imageSrc || "/images/home/course1.png"}
@@ -121,6 +144,7 @@ const MyAccountPage = () => {
                 ))
               )}
             </div>
+
           </div>
         </div>
       </div>

@@ -109,8 +109,6 @@ const Description = () => {
                                         Free
                                     </Text>
 
-
-
                                 </div>
                             </div>
                         ))}
