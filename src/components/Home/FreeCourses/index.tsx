@@ -1,57 +1,40 @@
+"use client"
 import React from 'react'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 
 import Text from '@/components/ui/Text'
-
-import course1 from "@/public/images/home/course1.png"
+// import course1 from "@/public/images/home/course1.png"
 import clock from "@/public/icons/clock.svg"
-
-const courses = [
-  {
-    id: 1,
-    imageSrc: course1,
-    title: 'All Assets Trading Course',
-    description: 'Start Trading Course Now... Quick & Dirty',
-    duration: '80 minutes',
-    price: 'Free',
-  },
-  {
-    id: 2,
-    imageSrc: course1,
-    title: 'Beginner Trading Course',
-    description: 'Start Trading Course Now... Quick & Dirty',
-    duration: '60 minutes',
-    price: 'Free',
-  },
-  {
-    id: 3,
-    imageSrc: course1, 
-    title: 'Advanced Trading Strategies',
-    description: 'Start Trading Course Now... Quick & Dirty',
-    duration: '120 minutes',
-    price: 'Free',
-  },
-  {
-    id: 4,
-    imageSrc: course1, 
-    title: 'Crypto Trading Basics',
-    description: 'Start Trading Course Now... Quick & Dirty',
-    duration: '90 minutes',
-    price: 'Free',
-  },
-];
+import { Course, courses } from '@/lib/constants/courses'
+import { useCourseStore } from '@/app/store/useCourseStore'
 
 const FreeCourses = () => {
+  const router = useRouter()
+  const { setSelectedCourse } = useCourseStore()
+
+  const freeCourses = courses.filter(course => course.type === 'free')
+
+  const handleCourseClick = (course: Course) => {
+    setSelectedCourse(course)
+    router.push('/start-trading-course')
+  }
+
   return (
     <div className='px-5 pb-20'>
       <div className="w-full max-w-[1313px] mx-auto flex justify-between items-end">
         <Text as='h2'>Free Courses</Text>
         <Text className='text-[14px] font-medium'>View All</Text>
       </div>
+
       <div className="w-full max-w-[1313px] mx-auto flex flex-wrap items-center justify-between mob:justify-center gap-8 mt-8">
-        {courses.map((course) => (
-          <div key={course.id} className="w-[300px] rounded-[20px] course-shadow relative">
-            <button className='bg-[#FF0000] w-[39px] h-[21px] rounded-[3px] absolute top-[15px] right-[15px] uppercase text-[9px] font-helvetica font-normal text-white '>HOT</button>
+        {freeCourses.map((course) => (
+          <div
+            key={course.id}
+            onClick={() => handleCourseClick(course)} // ✅ make card clickable
+            className="w-[300px] rounded-[20px] course-shadow relative cursor-pointer"
+          >
+            <button className='bg-[#FF0000] w-[39px] h-[21px] rounded-[3px] absolute top-[15px] right-[15px] uppercase text-[9px] font-helvetica font-normal text-white'>HOT</button>
             <Image
               className="w-full h-[154px] object-cover rounded-t-[20px]"
               src={course.imageSrc}
@@ -71,13 +54,12 @@ const FreeCourses = () => {
                   <Image src={clock} alt="clock" width={10} height={10} />
                   <Text className="text-[9px] text-black">{course.duration}</Text>
                 </div>
-                <Text className="text-[12px] font-bold">{course.price}</Text>
+                <Text className="text-[12px] font-bold">Free</Text>
               </div>
             </div>
           </div>
         ))}
       </div>
-
     </div>
   )
 }

@@ -161,7 +161,7 @@ const Navbar = () => {
             <div className="flex items-center gap-4 xl:hidden">
               {userId ? (
                 <div className=" flex gap-4 items-center">
-                  <Button className="w-[124px] rounded-[30px] text-white border-accent bg-accent cursor-text">{user?.firstName}</Button>
+                  <Button className="w-[124px] rounded-[30px] text-white border-accent bg-accent cursor-text">Hey, {user?.firstName}</Button>
                   <LogOutButton className="w-[124px] rounded-[30px] text-white border-accent bg-accent "/>
 
                 </div>

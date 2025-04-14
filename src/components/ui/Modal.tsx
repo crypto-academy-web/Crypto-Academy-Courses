@@ -37,7 +37,7 @@ const Modal: React.FC<ModalProps> = ({ isOpenModal, onClose, initialView  }) => 
             leaveTo="opacity-0 scale-95"
           >
             <Dialog.Panel className="w-full max-w-[478px] rounded-[56px] bg-white  shadow-xl ">
-              <Auth initialView={initialView} />
+              <Auth onClose={onClose} initialView={initialView} />
             </Dialog.Panel>
           </Transition.Child>
         </div>

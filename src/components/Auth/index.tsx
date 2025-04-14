@@ -6,10 +6,12 @@ import SignupForm from './SignupForm';
 import LoginForm from './LoginForm';
 interface AuthProps {
     initialView: 'login' | 'getStarted'; // 👈 new prop
+    onClose: () => void;
+
 }
 
 
-const Auth: React.FC<AuthProps> = ({ initialView }) => {
+const Auth: React.FC<AuthProps> = ({ initialView, onClose }) => {
 
     const [selected, setSelected] = useState<'login' | 'getStarted'>(initialView);
 
@@ -43,11 +45,11 @@ const Auth: React.FC<AuthProps> = ({ initialView }) => {
 
             {/* Conditional Content */}
             {selected === 'login' && (
-                <LoginForm />
+                <LoginForm onClose={onClose} />
             )}
 
             {selected === 'getStarted' && (
-                <SignupForm />
+                <SignupForm onClose={onClose} />
             )}
         </div>
     )
