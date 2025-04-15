@@ -27,7 +27,7 @@ const FreeCourses = () => {
         <Text className='text-[14px] font-medium'>View All</Text>
       </div>
 
-      <div className="w-full max-w-[1313px] mx-auto flex flex-wrap items-center justify-between mob:justify-center gap-8 mt-8">
+      <div className="w-full max-w-[1313px] mx-auto flex flex-wrap items-center  mob:justify-center gap-[37px] mt-8">
         {freeCourses.map((course) => (
           <div
             key={course.id}

@@ -96,7 +96,8 @@ export const courses: Course[] = [
     title: "Basics of Stock Market",
     description: "Perfect for beginners stepping into the trading world.",
     duration: "60min",
-    type: "free",
+    type: "paid",
+    amount: 49.99,
     imageSrc: course1
   }
 ];
