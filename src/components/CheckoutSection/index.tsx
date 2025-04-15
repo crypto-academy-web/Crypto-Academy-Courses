@@ -13,6 +13,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import StripeForm from "./Stripe";
 import axios from "axios";
+import Spinner from "../ui/Spinner";
 
 interface FormData {
   firstName: string;
@@ -129,7 +130,13 @@ const CheckoutSection = () => {
 
 
   return (
-    <div className="flex justify-center px-5 mt-24 mb-16">
+    <div className="flex justify-center items-center px-5 mt-24 mb-16 relative">
+      {loading && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm">
+          <Spinner fill="#000" />
+        </div>
+      )}
+
       <div className="w-full max-w-[1194px]">
         <div className="flex flex-wrap gap-[23px] relative">
           {/* Left Section */}
