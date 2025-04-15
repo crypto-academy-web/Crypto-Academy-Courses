@@ -28,8 +28,7 @@ export const courses: Course[] = [
     title: "Advanced Day Trading Strategies",
     description: "Master the art of day trading and maximize profits.",
     duration: "120min",
-    type: "paid",
-    amount: 49.99,
+    type: "free",
     imageSrc: course1
   },
   {
@@ -37,8 +36,7 @@ export const courses: Course[] = [
     title: "Crypto & Forex Secrets",
     description: "Insider tricks and tools for crypto and forex success.",
     duration: "95min",
-    type: "paid",
-    amount: 59.99,
+    type: "free",
     imageSrc: course1
   },
   {

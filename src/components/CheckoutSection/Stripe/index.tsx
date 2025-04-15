@@ -30,30 +30,37 @@ const Stripe: React.FC<StripeFormProps> = ({ handleSubmit, formData, setLoading,
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setLoading(true);
-
+  
     try {
       // Exclude additionalInfo from validation check
       const { ...formDataWithoutAdditionalInfo } = formData;
-      const allFieldsFilled = Object.values(formDataWithoutAdditionalInfo).every(value => value.trim() !== '');
-
+      const allFieldsFilled = Object.values(formDataWithoutAdditionalInfo).every(
+        (value) => value.trim() !== ""
+      );
+  
       if (!allFieldsFilled) {
         alert("Please fill all required fields.");
         return;
       }
-
+  
+      setLoading(true);
+  
       const res = await onStripeSubmit();
-
+  
       if (res?.success) {
         handleSubmit(e);
         // alert("payment success");
+      } else {
+        setLoading(false); //  Stop loader on failed stripe result
+        // alert("Payment failed. Please check your card details.");
       }
     } catch (error) {
       console.error("An error occurred during submission:", error);
       alert("An error occurred. Please try again.");
-    } 
+      setLoading(false); // Stop loader on error
+    }
   };
-
+  
   return (
     <div>
       <form className="w-full border border-[#EADCBE] rounded-[7.19px] px-[30px] py-[25px] mb-10" onSubmit={(e) => onSubmit(e)}>
