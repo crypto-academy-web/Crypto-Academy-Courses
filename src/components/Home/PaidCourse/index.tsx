@@ -21,7 +21,22 @@ const PaidCourse = () => {
 
   const paidCourses = allCourses.filter(course => course.type === "paid");
 
-  // ✅ Fetch purchasedCourses from Firestore
+  // 👇 Load More logic state
+  const [visibleCount, setVisibleCount] = useState(4);
+  const [showAll, setShowAll] = useState(false);
+
+  const visibleCourses = paidCourses.slice(0, visibleCount);
+
+  const handleToggleCourses = () => {
+    if (showAll) {
+      setVisibleCount(4);
+      setShowAll(false);
+    } else {
+      setVisibleCount(paidCourses.length);
+      setShowAll(true);
+    }
+  };
+
   useEffect(() => {
     const fetchPurchasedCourses = async () => {
       if (!userId) return;
@@ -79,7 +94,7 @@ const PaidCourse = () => {
         </div>
 
         <div className="flex flex-wrap gap-[37px] mt-12 mob:justify-center">
-          {paidCourses.map((course) => {
+          {visibleCourses.map((course) => {
             const isPurchased = purchasedCourseIds.includes(course.id);
 
             return (
@@ -115,8 +130,12 @@ const PaidCourse = () => {
           })}
         </div>
 
-        <Button className='mx-auto mt-20 bg-primary text-white rounded-[7px] max-w-[186px] h-[45px] text-[17px] font-medium'>
-          Load More
+        {/* 👇 Load More / See Less Toggle */}
+        <Button
+          onClick={handleToggleCourses}
+          className='mx-auto mt-20 bg-primary text-white rounded-[7px] max-w-[186px] h-[45px] text-[17px] font-medium'
+        >
+          {showAll ? "See Less" : "Load More"}
         </Button>
       </div>
     </div>

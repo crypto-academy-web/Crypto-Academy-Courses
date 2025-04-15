@@ -24,3 +24,51 @@ body {
 .scrollbar-hidden::-webkit-scrollbar {
   display: none; /* Chrome, Safari */
 }
+
+
+
+.StripeElement.StripeElement--empty,
+.StripeElement.StripeElement--focus,
+.StripeElement.StripeElement--invalid,
+.StripeElement.StripeElement--complete {
+  /* background: white; */
+  padding: 16px;
+  margin-bottom: 22px;
+  --text-opacity: 0.2; /* Adjust the opacity as needed */
+  height: 60.19px;
+  border: 1px solid #c8c8c8;
+  color: rgb(15, 10, 10);
+  border-radius: 7.19px;
+  font-size: 16px !important;
+}
+
+.ElementsApp,
+.ElementsApp .InputElement {
+  color: rgb(15, 10, 10);
+}
+/* .StripeElement.StripeElement--focus{
+  outline:2px solid #FF7565;
+
+} */
+.StripeElement.StripeElement--focus,
+.StripeElement.StripeElement--complete {
+  border-color: accent;
+  font-size: 16px !important;
+  color: rgb(15, 10, 10);
+}
+
+.StripeElement.StripeElement--invalid {
+  /* border-color: red; */
+  /* outline:2px solid red; */
+  border-bottom: 1px solid red;
+  font-size: 16px !important;
+}
+
+.expiryStripe {
+  /* margin-right: 10px; */
+  flex: 1;
+}
+
+.cvcStripe {
+  flex: 1;
+}

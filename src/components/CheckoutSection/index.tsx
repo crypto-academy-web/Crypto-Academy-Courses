@@ -9,6 +9,26 @@ import { useUser, useUserId } from "@/app/store/user";
 import { db } from "@/firebase"; // Adjust if needed
 import { doc, updateDoc, arrayUnion } from "firebase/firestore";
 import { useRouter } from "next/navigation";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+import StripeForm from "./Stripe";
+import axios from "axios";
+
+interface FormData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  streetAddress: string;
+  aptNumber: string;
+  state: string;
+  zipCode: string;
+}
+
+
+const stripePromise = loadStripe(
+  process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY as string
+);
+
 
 const CheckoutSection = () => {
   const { selectedCourse } = useCourseStore();
@@ -27,6 +47,7 @@ const CheckoutSection = () => {
 
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [initialView, setInitialView] = useState<"login" | "getStarted">("login");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (user) {
@@ -38,50 +59,74 @@ const CheckoutSection = () => {
 
   if (!selectedCourse) return <div>No course selected.</div>;
 
+  const formData: FormData = {
+    firstName,
+    lastName,
+    email,
+    streetAddress: street,
+    aptNumber: apt,
+    state: stateName,
+    zipCode: zip,
+  };
+
   const handleSubmit = async () => {
     if (!firstName || !lastName || !email || !street || !apt || !stateName || !zip) {
       alert("Please fill in all the fields.");
       return;
     }
-  
+
     if (!userId) {
       alert("User not logged in.");
       return;
     }
-  
-    const formData = {
-      firstName,
-      lastName,
-      email,
-      street,
-      apt,
-      state: stateName,
-      zip,
-    };
-  
-    console.log("Form Data:", formData);
-    console.log("Selected Course:", selectedCourse);
-  
+
     try {
-      const userRef = doc(db, "users", userId); // ✅ userId is now guaranteed
+      // Step 1: Save course to Firestore
+      const userRef = doc(db, "users", userId);
       const courseToStore = {
         ...selectedCourse,
         purchasedAt: new Date().toISOString(),
       };
-  
+
       await updateDoc(userRef, {
         purchasedCourses: arrayUnion(courseToStore),
       });
-  
+
+      // Step 2: Prepare data for /api/order
+      const orderPayload = {
+        firstName,
+        lastName,
+        email,
+        streetAddress: street,
+        aptNumber: apt,
+        state: stateName,
+        zipCode: zip,
+        courseTitle: selectedCourse.title,
+        price: selectedCourse.amount,
+        metadata: {
+          courseId: selectedCourse.id,
+          userId,
+        },
+      };
+      console.log("orderPayload", orderPayload);
+
+      // Step 3: Call /api/order using axios
+
       alert("Course purchased successfully!");
+      setLoading(false);
+
       router.push("/my-account");
-      
+
+      const response = await axios.post("/api/order", orderPayload);
+      console.log("Stripe response:", response.data);
+
     } catch (error) {
-      console.error("Error saving course:", error);
-      alert("Something went wrong.");
+      console.error("Checkout error:", error);
+      alert("Something went wrong. Please try again.");
     }
   };
-  
+
+
 
   return (
     <div className="flex justify-center px-5 mt-24 mb-16">
@@ -177,9 +222,12 @@ const CheckoutSection = () => {
                 <Text as="h2" className="text-[22px] text-primary font-helvetica font-normal mb-5 mt-7">
                   Payment Method
                 </Text>
-                <Button onClick={handleSubmit} className="bg-primary w-full h-[70px] rounded-[7.19px] text-[22px]">
+                {/* <Button onClick={handleSubmit} className="bg-primary w-full h-[70px] rounded-[7.19px] text-[22px]">
                   Submit
-                </Button>
+                </Button> */}
+                <Elements stripe={stripePromise}>
+                  <StripeForm formData={formData} handleSubmit={handleSubmit} setLoading={setLoading} loading={loading} />
+                </Elements>
               </>
             ) : (
               <div className="mb-5 mt-7">
