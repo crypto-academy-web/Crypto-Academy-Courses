@@ -6,7 +6,7 @@ import Text from '@/components/ui/Text'
 const WorldOfKnowledge = () => {
   return (
     <div className='px-5 mob:mb-10'>
-        <div className="w-full max-w-[1313px] flex flex-wrap gap-20 items-center">
+        <div className="w-full max-w-[1313px] mx-auto flex flex-wrap gap-20 items-center">
             <Image src={knowledge} alt="knowledge" width={607} height={604} />
 
             <div className="max-w-[508px]">
