@@ -42,7 +42,7 @@ interface LoginFormProps {
       
           if (docSnap.exists()) {
             const userData = docSnap.data();
-      
+          
             // Set user to Zustand
             useUserStore.getState().setUser({
               uid: user.uid,
@@ -50,17 +50,22 @@ interface LoginFormProps {
               firstName: userData.firstName,
               lastName: userData.lastName,
             });
-      
+          
             alert("Login successful");
-            if (currentPath === "/checkout") {
-               onClose(); // Close the modal if it's open
-              } else {
-                router.push("/my-account");
-                onClose();
-              }
+          
+            // ✅ Admin check & route logic
+            if (user.email === "admin@gmail.com") {
+              router.push("/dashboard");
+            } else if (currentPath === "/checkout") {
+              onClose();
+            } else {
+              router.push("/my-account");
+              onClose();
+            }
           } else {
             alert("User document does not exist.");
           }
+          
       
         } catch (error: unknown) {
           if (error instanceof Error) {
