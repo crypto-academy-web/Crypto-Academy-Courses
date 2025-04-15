@@ -3,6 +3,7 @@ import { StaticImageData } from "next/image";
 
 export type CourseType = 'free' | 'paid';
 
+
 export interface Course {
   id: string;
   title: string;
