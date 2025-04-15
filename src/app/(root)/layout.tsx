@@ -1,0 +1,52 @@
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import localFont from "next/font/local";
+
+
+const helvetica = localFont({
+  src: [
+    {
+      path: "../fonts/helvetica-neue/HelveticaNeueLight.otf",
+      weight: "300", // Light weight
+      style: "normal",
+    },
+    {
+      path: "../fonts/helvetica-neue/HelveticaNeue-Roman.otf",
+      weight: "400", // Regular weight
+      style: "normal",
+    },
+    {
+      path: "../fonts/helvetica-neue/HelveticaNeueMedium.otf",
+      weight: "500", // Medium weight
+      style: "normal",
+    },
+    {
+      path: "../fonts/helvetica-neue/HelveticaNeueBold.otf",
+      weight: "700", // Bold weight
+      style: "normal",
+    },
+    {
+      path: "../fonts/helvetica-neue/HelveticaNeueHeavy.otf",
+      weight: "900", // Black weight
+      style: "normal",
+    },
+  ],
+  variable: "--font-helvetica",
+});
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en">
+      <body
+        className={`${helvetica.variable} antialiased`}
+      >
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
+    </html>
+  );
+}
