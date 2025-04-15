@@ -7,8 +7,11 @@ import Text from '@/components/ui/Text'
 
 import herobg from "@/public/images/home/herobg (2).png"
 import Modal from '@/components/ui/Modal'
+import { useUserStore } from '@/app/store/user'
 
 const HeroSection = () => {
+
+    const { user } = useUserStore()
     const [isOpenModal, setIsOpenModal] = useState(false);
     const [initialView, setInitialView] = useState<'login' | 'getStarted'>('login');
 
@@ -23,20 +26,33 @@ const HeroSection = () => {
                         and quizzes from AvaAcademy.
                     </Text>
 
-                    <div className="flex gap-5 ">
-                        <Button
-                            onClick={() => {
-                                setInitialView('login');
-                                setIsOpenModal(true);
-                            }}
-                            className='max-w-[91px]'>Login</Button>
-                        <Button className='max-w-[124px] text-primary bg-[#FFFFFF]'
-                            onClick={() => {
-                                setInitialView('getStarted');
-                                setIsOpenModal(true);
-                            }}
-                        >Get Started</Button>
-                    </div>
+                    {user ? (
+                        <Text className='text-white text-[28px] font-light '>
+                            Hey, {user.firstName || "there"} 👋
+                        </Text>
+                    ) : (
+                        <div className="flex gap-5">
+                            <Button
+                                onClick={() => {
+                                    setInitialView('login');
+                                    setIsOpenModal(true);
+                                }}
+                                className="max-w-[91px]"
+                            >
+                                Login
+                            </Button>
+                            <Button
+                                className="max-w-[124px] text-primary bg-[#FFFFFF]"
+                                onClick={() => {
+                                    setInitialView('getStarted');
+                                    setIsOpenModal(true);
+                                }}
+                            >
+                                Get Started
+                            </Button>
+                        </div>
+                    )}
+
                     <Modal isOpenModal={isOpenModal} onClose={() => setIsOpenModal(false)} initialView={initialView} />
 
                 </div>
