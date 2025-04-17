@@ -1,7 +1,9 @@
 "use client";
 import { useCallback, useEffect } from "react";
 import { twMerge } from "tailwind-merge";
+// import Image from "next/image";
 
+// import logo from "@/public/icons/logo.svg";
 // import Text from "@/ui/Text";
 import { IoClose } from "react-icons/io5";
 
@@ -59,10 +61,11 @@ const Drawer: React.FC<DrawerProps> = ({
       )}
       <div
         className={twMerge(
-          `fixed right-0 top-0 z-[999] h-full   w-[705px] ] mob:w-full transform overflow-x-hidden text-white  drawerbg transition-transform duration-300 bg-black/85 ease-in-out ${isOpen
-            ? "transition-transform duration-700 ease-in-out translate-x-0"
-            : "transition-transform duration-700 ease-in-out  translate-x-full"
-          // isOpen ? "h-[100%] w-full translate-y-[10%]" : "translate-y-full"
+          `fixed right-0 top-0 z-[999] h-full   w-[705px] ] mob:w-full transform overflow-x-hidden text-white  drawerbg transition-transform duration-300 bg-black/85 ease-in-out ${
+            isOpen
+              ? "transition-transform duration-700 ease-in-out translate-x-0"
+              : "transition-transform duration-700 ease-in-out  translate-x-full"
+            // isOpen ? "h-[100%] w-full translate-y-[10%]" : "translate-y-full"
           }`,
           className
         )}
@@ -76,13 +79,13 @@ const Drawer: React.FC<DrawerProps> = ({
             {drawerTitle ? drawerTitle : "Drawer"}
           </Text> */}
           {/* <Image
-                    src={logo}
-                    alt="Flowbite Logo"
-                    priority
-                    width={87}
-                    height={72}
-                  /> */}
-          logo
+            src={logo}
+            alt="Flowbite Logo"
+            priority
+            width={117}
+            height={112}
+          /> */}
+
           <button className="text-black" onClick={onClose}>
             {/* <Image src={closeIcon} alt="closeIcon" /> */}
             <IoClose className="text-[40px] text-white" />
