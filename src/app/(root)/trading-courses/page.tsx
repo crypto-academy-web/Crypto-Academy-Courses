@@ -1,8 +1,8 @@
-import AvaAcademy from '@/components/TradingCourse/AvaAcademy'
-import Faqs from '@/components/TradingCourse/Faqs'
-import Products from '@/components/TradingCourse/Products'
-import Text from '@/components/ui/Text'
-import React from 'react'
+import AvaAcademy from "@/components/TradingCourse/AvaAcademy";
+import Faqs from "@/components/TradingCourse/Faqs";
+import Products from "@/components/TradingCourse/Products";
+import Text from "@/components/ui/Text";
+import React from "react";
 
 const TradingCourses = () => {
   return (
@@ -18,7 +18,7 @@ const TradingCourses = () => {
       <AvaAcademy />
       <Faqs />
     </>
-  )
-}
+  );
+};
 
-export default TradingCourses
+export default TradingCourses;

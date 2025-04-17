@@ -1,31 +1,98 @@
-import React from 'react'
-import Image from 'next/image'
+"use client";
 
-import Text from '@/components/ui/Text'
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Keyboard, Navigation, Scrollbar, Pagination } from "swiper/modules";
 
-import dots from "@/public/images/home/dots.png"
-import user from "@/public/images/home/user.png"
+import "swiper/css";
+import "swiper/css/scrollbar";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+
+import SlideOne from "./Slides/SlideOne";
+
 const Testimonials = () => {
-    return (
-        <div className='mt-20 mb-10 px-5'>
-            <div className="w-full max-w-[1313px] mx-auto bg-[#20263040] py-8 rounded-[30px] mob:px-5">
-                <Text as='h2' className='text-center text-[34px] '>
-                    People Say The Nicest Things
-                </Text>
-                <Image className='mx-auto mt-12' src={dots} alt="dots" />
-                <Text className='text-center text-[17px] font-normal leading-[131%] max-w-[648px] mx-auto mt-2'>
-                    “I knew the basics of trading, but I didn’t understand the important of things like technical analysis, Stop-Loss and Take Profit orders. AvaAcademy, you have
-                    given me the gift of knowledge. Much appreciated”
-                </Text>
-                <Text className='text-center text-[19px] font-bold leading-[134%] mt-4'>
-                    Carol Schwartz
-                </Text>
+  //   const swiper = useSwiper();
 
-                <Image className='mx-auto mt-6' src={user} alt="user" width={50} height={50} />
+  //   const handleprevbtn = () => {
+  //     swiper?.slidePrev();
+  //   };
 
-            </div>
-        </div>
-    )
-}
+  //   const handleNextvbtn = () => {
+  //     swiper?.slideNext();
+  //   };
 
-export default Testimonials
+  return (
+    <div className="parent-div">
+      <div className="swiper-main-div">
+        {/* <Image
+          className="custom-prev"
+          onClick={handleprevbtn}
+          src={moveprevbtn}
+          alt="moveprevbtn"
+         
+        /> */}
+
+        <Swiper
+          //   onSlideChange={handleSlideChange}
+          slidesPerView={1}
+          // activeIndex={activeIndex}
+          initialSlide={1}
+          spaceBetween={0}
+          centeredSlides={true}
+          pagination={true}
+          speed={900}
+          // slidesPerGroupSkip={3}
+          breakpoints={{
+            640: {
+              slidesPerView: 1,
+            },
+            768: {
+              slidesPerView: 1,
+            },
+            1024: {
+              slidesPerView: 1,
+            },
+          }}
+          // scrollbar={true}
+          loop={true}
+          navigation={{
+            nextEl: ".custom-next",
+
+            prevEl: ".custom-prev",
+          }}
+          modules={[Keyboard, Navigation, Scrollbar, Pagination]}
+          className="mySwiper"
+        >
+          <SwiperSlide>
+            <SlideOne />
+          </SwiperSlide>
+          <SwiperSlide>
+            <SlideOne />
+          </SwiperSlide>
+          <SwiperSlide>
+            <SlideOne />
+          </SwiperSlide>
+          <SwiperSlide>
+            <SlideOne />
+          </SwiperSlide>
+          <SwiperSlide>
+            <SlideOne />
+          </SwiperSlide>
+          <SwiperSlide>
+            <SlideOne />
+          </SwiperSlide>
+        </Swiper>
+
+        {/* <Image
+          className="custom-next"
+          onClick={handleNextvbtn}
+          src={movenextbtn}
+          alt="movenextbtn"
+         
+        /> */}
+      </div>
+    </div>
+  );
+};
+
+export default Testimonials;
