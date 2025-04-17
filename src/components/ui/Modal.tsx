@@ -1,16 +1,16 @@
-'use client';
+"use client";
 
-import { Dialog, Transition } from '@headlessui/react';
-import { Fragment } from 'react';
-import Auth from '../Auth';
+import { Dialog, Transition } from "@headlessui/react";
+import { Fragment } from "react";
+import Auth from "../Auth";
 
 interface ModalProps {
   isOpenModal: boolean;
-  onClose: () => void; // ✅ accept onClose from parent
-  initialView: 'login' | 'getStarted';
+  onClose: () => void;
+  initialView: "login" | "getStarted" | "search";
 }
 
-const Modal: React.FC<ModalProps> = ({ isOpenModal, onClose, initialView  }) => {
+const Modal: React.FC<ModalProps> = ({ isOpenModal, onClose, initialView }) => {
   return (
     <Transition appear show={isOpenModal} as={Fragment}>
       <Dialog as="div" className="relative z-[9999] w-full" onClose={onClose}>
