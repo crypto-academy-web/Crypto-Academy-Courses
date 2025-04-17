@@ -117,7 +117,7 @@ const PaidCourse = () => {
                 className="mt-2 block w-full px-4 py-2 h-[57px] bg-white border-[0.2px] rounded-none border-[#000000]/20 focus:outline-none appearance-none pr-8 text-[14px]"
               >
                 <option value="" disabled>
-                  Release date (newest first)
+                  Select Category
                 </option>
                 <option value="option1">Forex Trading</option>
                 <option value="option2">Crypto Trading</option>

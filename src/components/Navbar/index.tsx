@@ -113,77 +113,78 @@ const Navbar = () => {
       );
 
   return (
-    <nav className={navClass}>
-      <div className="flex justify-center items-center w-full min-h-[80px] overflow-hidden">
-        <div
-          className={cn(
-            "relative max-w-[1300px] min-h-[80px] w-full flex flex-wrap items-center justify-between mx-auto py-4"
-          )}
-        >
-          <div className="flex justify-between items-center w-full mob:px-5 overflow-hidden">
-            {/* dekstop navbar */}
-            <div>
-              <Link
-                href="/"
-                className="flex mob:justify-start xl:hidden space-x-3 mob:w-[140px] rtl:space-x-reverse"
-              >
-                <Image src={logo} alt="logo" className="w-[150px]"></Image>
-              </Link>
-            </div>
+    <>
+      <nav className={navClass}>
+        <div className="flex justify-center items-center w-full min-h-[80px] overflow-hidden">
+          <div
+            className={cn(
+              "relative max-w-[1300px] min-h-[80px] w-full flex flex-wrap items-center justify-between mx-auto py-4"
+            )}
+          >
+            <div className="flex justify-between items-center w-full mob:px-5 overflow-hidden">
+              {/* dekstop navbar */}
+              <div>
+                <Link
+                  href="/"
+                  className="flex mob:justify-start xl:hidden space-x-3 mob:w-[140px] rtl:space-x-reverse"
+                >
+                  <Image src={logo} alt="logo" className="w-[150px]"></Image>
+                </Link>
+              </div>
 
-            <ul className="font-normal mob:absolute xl:hidden mob:top-[100px] items-center mob:px-4 mob:left-0 mob:w-full z-50 flex flex-col py-4 md:p-0 mt-4 gap-[32px] md:flex-row rtl:space-x-reverse md:mt-0 tab:bg-black">
-              <li>
-                <Link
-                  href="trading-courses"
-                  onClick={() => handleTabChange("#")}
-                  className={`block text-[14px] font-helvitica font-bold leading-[100%] text-white ${
-                    activeTab === "#" ? " " : "text-white"
-                  }`}
-                >
-                  Trading Courses
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="trading-guides"
-                  onClick={() => handleTabChange("/product-and-services")}
-                  className={`block text-[14px] font-helvitica font-bold leading-[100%] text-white ${
-                    activeTab === "#" ? " " : "text-white"
-                  }`}
-                >
-                  Trading Guides
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/about-us"
-                  onClick={() => handleTabChange("/news")}
-                  className={`block text-[14px] font-helvitica font-bold leading-[100%] text-white ${
-                    activeTab === "#" ? " " : "text-white"
-                  }`}
-                >
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contact-us"
-                  onClick={() => handleTabChange("/awareness-and-advocacy")}
-                  className={`block text-[14px] font-helvitica font-bold leading-[100%] text-white ${
-                    activeTab === "#" ? " " : "text-white"
-                  }`}
-                >
-                  Contact Us
-                </Link>
-              </li>
+              <ul className="font-normal mob:absolute xl:hidden mob:top-[100px] items-center mob:px-4 mob:left-0 mob:w-full z-50 flex flex-col py-4 md:p-0 mt-4 gap-[32px] md:flex-row rtl:space-x-reverse md:mt-0 tab:bg-black">
+                <li>
+                  <Link
+                    href="trading-courses"
+                    onClick={() => handleTabChange("#")}
+                    className={`block text-[14px] font-helvitica font-bold leading-[100%] text-white ${
+                      activeTab === "#" ? " " : "text-white"
+                    }`}
+                  >
+                    Trading Courses
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="trading-guides"
+                    onClick={() => handleTabChange("/product-and-services")}
+                    className={`block text-[14px] font-helvitica font-bold leading-[100%] text-white ${
+                      activeTab === "#" ? " " : "text-white"
+                    }`}
+                  >
+                    Trading Guides
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/about-us"
+                    onClick={() => handleTabChange("/news")}
+                    className={`block text-[14px] font-helvitica font-bold leading-[100%] text-white ${
+                      activeTab === "#" ? " " : "text-white"
+                    }`}
+                  >
+                    About Us
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/contact-us"
+                    onClick={() => handleTabChange("/awareness-and-advocacy")}
+                    className={`block text-[14px] font-helvitica font-bold leading-[100%] text-white ${
+                      activeTab === "#" ? " " : "text-white"
+                    }`}
+                  >
+                    Contact Us
+                  </Link>
+                </li>
 
-              <button
-                className="w-[60px] h-[50px]"
-                onClick={() => setSearchModalOpen(true)}
-              >
-                <Image src={searchbar} alt="searchbar" />
-              </button>
-              <SearchModal
+                <button
+                  className="w-[60px] h-[50px]"
+                  onClick={() => setSearchModalOpen(true)}
+                >
+                  <Image src={searchbar} alt="searchbar" />
+                </button>
+                {/* <SearchModal
                 isOpen={isSearchModalOpen}
                 onClose={() => setSearchModalOpen(false)}
               >
@@ -193,105 +194,121 @@ const Navbar = () => {
                   placeholder="Search..."
                   className="border border-gray-300 rounded-lg px-4 py-2 w-full font-helvetica"
                 />
-              </SearchModal>
-            </ul>
+              </SearchModal> */}
+              </ul>
 
-            <div className="flex items-center gap-4 xl:hidden">
-              {userId ? (
-                <div className=" flex gap-4 items-center">
-                  {/* <Button className="w-[124px] rounded-[30px] text-white border-accent bg-accent cursor-text">Hey, {user?.firstName}</Button> */}
-                  {/* <LogOutButton className="w-[124px] rounded-[30px] text-white border-accent bg-accent "/> */}
-                  <DropDown userName={user?.firstName} />
-                </div>
-              ) : (
-                <>
-                  <div
-                    onClick={() => {
-                      setInitialView("login");
-                      setIsOpenModal(true);
-                    }}
-                    className="w-[109px]"
-                  >
-                    <Button className="border-accent">Login</Button>
+              <div className="flex items-center gap-4 xl:hidden">
+                {userId ? (
+                  <div className=" flex gap-4 items-center">
+                    {/* <Button className="w-[124px] rounded-[30px] text-white border-accent bg-accent cursor-text">Hey, {user?.firstName}</Button> */}
+                    {/* <LogOutButton className="w-[124px] rounded-[30px] text-white border-accent bg-accent "/> */}
+                    <DropDown userName={user?.firstName} />
                   </div>
-
-                  <div
-                    className="w-[109px]"
-                    onClick={() => {
-                      setInitialView("getStarted");
-                      setIsOpenModal(true);
-                    }}
-                  >
-                    <Button className="max-w-[124px] text-white border-accent bg-accent">
-                      Get Started
-                    </Button>
-                  </div>
-                </>
-              )}
-
-              <Modal
-                isOpenModal={isOpenModal}
-                onClose={() => setIsOpenModal(false)}
-                initialView={initialView}
-              />
-              {/* <SidebarUser /> */}
-            </div>
-            {/* dekstop navbar */}
-
-            {/* mobile navbar */}
-            <div className="hidden xl:block w-full">
-              <div className="flex w-full justify-between items-center">
-                <Image src={logo} alt="logo" className="w-[160px] h-[60px]" />
-                <div className="relative cursor-pointer flex" onClick={onOpen}>
-                  <button
-                    type="button"
-                    className="inline-flex items-center w-10 h-10 justify-center text-sm  text-[#fff] rounded-lg"
-                  >
-                    <span className="sr-only">Open main menu</span>
-                    <svg
-                      className="w-[30px] h-[30px]"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 17 14"
+                ) : (
+                  <>
+                    <div
+                      onClick={() => {
+                        setInitialView("login");
+                        setIsOpenModal(true);
+                      }}
+                      className="w-[109px]"
                     >
-                      <path
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M1 1h15M1 7h15M1 13h15"
-                      />
-                    </svg>
-                  </button>
-                </div>
-                {/* logo */}
+                      <Button className="border-accent">Login</Button>
+                    </div>
+
+                    <div
+                      className="w-[109px]"
+                      onClick={() => {
+                        setInitialView("getStarted");
+                        setIsOpenModal(true);
+                      }}
+                    >
+                      <Button className="max-w-[124px] text-white border-accent bg-accent">
+                        Get Started
+                      </Button>
+                    </div>
+                  </>
+                )}
+
+                <Modal
+                  isOpenModal={isOpenModal}
+                  onClose={() => setIsOpenModal(false)}
+                  initialView={initialView}
+                />
+                {/* <SidebarUser /> */}
               </div>
-              <Drawer isOpen={isOpen} onClose={onClose}>
-                <ul className="font-normal w-full z-50 flex flex-col py-4 gap-0">
-                  {navLinksMob.map(({ label, path }) => (
-                    <a
-                      href={path}
-                      key={path}
-                      onClick={() => handleTabChange(path)}
-                      className={`block text-[14px] font-helvitica font-bold leading-[100%] text-white ${
-                        activeTab === path ? "text-white" : "text-white"
-                      }`}
-                    >
-                      <li className="flex justify-start py-[15px] list-items mob:px-[25px]">
-                        {label}
-                      </li>
-                    </a>
-                  ))}
-                </ul>
-              </Drawer>
-            </div>
+              {/* dekstop navbar */}
 
-            {/* mobile navbar end*/}
+              {/* mobile navbar */}
+              <div className="hidden xl:block w-full">
+                <div className="flex w-full justify-between items-center">
+                  <Image src={logo} alt="logo" className="w-[160px] h-[60px]" />
+                  <div
+                    className="relative cursor-pointer flex"
+                    onClick={onOpen}
+                  >
+                    <button
+                      type="button"
+                      className="inline-flex items-center w-10 h-10 justify-center text-sm  text-[#fff] rounded-lg"
+                    >
+                      <span className="sr-only">Open main menu</span>
+                      <svg
+                        className="w-[30px] h-[30px]"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 17 14"
+                      >
+                        <path
+                          stroke="currentColor"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M1 1h15M1 7h15M1 13h15"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                  {/* logo */}
+                </div>
+                <Drawer isOpen={isOpen} onClose={onClose}>
+                  <ul className="font-normal w-full z-50 flex flex-col py-4 gap-0">
+                    {navLinksMob.map(({ label, path }) => (
+                      <a
+                        href={path}
+                        key={path}
+                        onClick={() => handleTabChange(path)}
+                        className={`block text-[14px] font-helvitica font-bold leading-[100%] text-white ${
+                          activeTab === path ? "text-white" : "text-white"
+                        }`}
+                      >
+                        <li className="flex justify-start py-[15px] list-items mob:px-[25px]">
+                          {label}
+                        </li>
+                      </a>
+                    ))}
+                  </ul>
+                </Drawer>
+              </div>
+
+              {/* mobile navbar end*/}
+            </div>
           </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+      {/* ✅ SearchModal placed at root of Navbar so it's not affected by scroll */}
+      <SearchModal
+        isOpen={isSearchModalOpen}
+        onClose={() => setSearchModalOpen(false)}
+      >
+        <Text className="text-xl font-bold mb-4">Search</Text>
+        <input
+          type="text"
+          placeholder="Search..."
+          className="border border-gray-300 rounded-lg px-4 py-2 w-full font-helvetica"
+        />
+      </SearchModal>
+    </>
   );
 };
 

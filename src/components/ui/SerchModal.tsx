@@ -1,4 +1,4 @@
-// Modal.tsx
+// SearchModal.tsx
 import React, { useEffect, useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 
@@ -16,37 +16,38 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
     let timeout: NodeJS.Timeout;
 
     if (isOpen) {
+      document.body.classList.add("overflow-hidden"); // 🛑 Block scrolling
       setShow(true);
-      // Delay adding animation classes for smooth entrance
-      timeout = setTimeout(() => {
-        setAnimate(true);
-      }, 10); // 10ms is enough to trigger transition
+      timeout = setTimeout(() => setAnimate(true), 10);
     } else {
       setAnimate(false);
-      // Delay unmount to allow exit animation
       timeout = setTimeout(() => {
         setShow(false);
+        document.body.classList.remove("overflow-hidden"); // ✅ Restore scroll
       }, 300);
     }
 
-    return () => clearTimeout(timeout);
+    return () => {
+      clearTimeout(timeout);
+      document.body.classList.remove("overflow-hidden");
+    };
   }, [isOpen]);
 
   if (!show) return null;
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center z-50">
-      {/* Overlay */}
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center">
+      {/* Background Overlay */}
       <div
-        className={`fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm transition-opacity duration-300 ${
+        className={`absolute inset-0 bg-black bg-opacity-70 backdrop-blur-sm transition-opacity duration-500 ${
           animate ? "opacity-100" : "opacity-0"
         }`}
         onClick={onClose}
       />
 
-      {/* Modal box */}
+      {/* Modal Content */}
       <div
-        className={`relative bg-white rounded-lg shadow-lg w-full max-w-[1313px] px-8 py-10 transform transition-all duration-300 ${
+        className={`relative z-10 bg-white rounded-lg shadow-xl w-full max-w-[1313px] px-8 py-10 transform transition-all duration-500 ${
           animate ? "opacity-100 scale-100" : "opacity-0 scale-95"
         }`}
       >

@@ -69,13 +69,13 @@ const Products = () => {
           <Text as="h1" className="text-black text-[36px] mob:hidden">
             Trading Courses
           </Text>
-          <div className="flex items-center space-x-[2px] max-w-[199px] w-full">
+          {/* <div className="flex items-center space-x-[2px] max-w-[199px] w-full">
             <input
               type="text"
               placeholder="Search..."
               className="flex-grow focus:outline-none font-helvetica text-[12px] text-primary border mr-[-5px] border-[#00000066] px-3 py-2 w-full max-w-[175px] h-[50px]"
             />
-          </div>
+          </div> */}
           <div className="flex items-center">
             <button className="bg-primary w-[80px] h-[50px] flex items-center justify-center text-[12px] font-helvetica font-medium text-white">
               Sort By
@@ -100,7 +100,7 @@ const Products = () => {
           gain exclusive access to advanced courses on trading platforms...
         </Text>
 
-        <div className="flex mob:flex-wrap mob:justify-center justify-end w-full gap-12 mt-14">
+        <div className="flex mob:flex-wrap mob:justify-center justify-between w-full gap-12 mt-14">
           <div className="w-full max-w-[251px]">
             <SideCategory />
           </div>
