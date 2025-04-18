@@ -60,7 +60,7 @@ const PaidCourse = () => {
     fetchProducts();
   }, []);
 
-  const paidCourses = products.filter((course) => course.type === "paid");
+  // const paidCourses = products.filter((course) => course.type === "paid");
   const ForexTradingCourses = products.filter(
     (course) => course.category === "Forex Trading"
   );
@@ -94,10 +94,23 @@ const PaidCourse = () => {
       setVisibleCount(4);
       setShowAll(false);
     } else {
-      setVisibleCount(paidCourses.length);
+      const totalCount =
+        selectedOption === "Forex Trading"
+          ? ForexTradingCourses.length
+          : selectedOption === "Crypto Trading"
+          ? CryptoTradingCourses.length
+          : AdvancedTradingCourses.length;
+
+      setVisibleCount(totalCount);
       setShowAll(true);
     }
   };
+
+  const shouldShowToggleButton =
+    (selectedOption === "Forex Trading" && ForexTradingCourses.length > 4) ||
+    (selectedOption === "Crypto Trading" && CryptoTradingCourses.length > 4) ||
+    (selectedOption === "Advanced Day Trading Strategies" &&
+      AdvancedTradingCourses.length > 4);
 
   //purchased courses
 
@@ -333,6 +346,7 @@ const PaidCourse = () => {
             </>
           )}
 
+          {/* Purchased Products */}
           {/* {visibleCourses.map((course) => {
             const isPurchased = purchasedCourseIds.includes(course.id);
 
@@ -379,14 +393,17 @@ const PaidCourse = () => {
 
         {/*  Load More / See Less Toggle */}
 
-        <Button
-          onClick={handleToggleCourses}
-          className={cn(
-            "mx-auto mt-20 bg-primary text-white rounded-[7px] max-w-[186px] h-[45px] text-[17px] font-medium"
-          )}
-        >
-          {showAll ? "See Less" : "Load More"}
-        </Button>
+        {/*  Load More / See Less Toggle */}
+        {shouldShowToggleButton && (
+          <Button
+            onClick={handleToggleCourses}
+            className={cn(
+              "mx-auto mt-20 bg-primary text-white rounded-[7px] max-w-[186px] h-[45px] text-[17px] font-medium"
+            )}
+          >
+            {showAll ? "See Less" : "Load More"}
+          </Button>
+        )}
       </div>
     </div>
   );
