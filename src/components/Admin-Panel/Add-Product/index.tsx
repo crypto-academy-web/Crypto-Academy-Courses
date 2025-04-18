@@ -114,7 +114,7 @@ const AddProduct: React.FC<AddProductProps> = ({ onProductAdded }) => {
   };
 
   return (
-    <div className="w-full max-w-[768px] mx-auto py-10 px-4">
+    <div className="w-full max-w-[1313px] mx-auto py-10 px-4">
       <h2 className="text-3xl font-bold mb-6 text-black">Add Product</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
@@ -215,7 +215,7 @@ const AddProduct: React.FC<AddProductProps> = ({ onProductAdded }) => {
         <button
           type="submit"
           disabled={loading}
-          className="bg-black text-white py-2 px-4 rounded hover:opacity-90"
+          className="bg-accent text-white py-2 px-4 rounded hover:opacity-90"
         >
           {loading ? "Uploading..." : "Add Product"}
         </button>
