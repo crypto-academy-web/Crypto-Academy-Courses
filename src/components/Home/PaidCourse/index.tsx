@@ -7,12 +7,14 @@ import { db } from "@/firebase";
 import Text from "@/components/ui/Text";
 import Button from "@/components/ui/Button";
 import clock from "@/public/icons/clock.svg";
-import { Course } from "@/lib/constants/courses";
-import { useCourseStore } from "@/app/store/useCourseStore";
-import { useRouter } from "next/navigation";
-import { useUserId } from "@/app/store/user";
-import { doc, getDoc } from "firebase/firestore";
+// import { Course } from "@/lib/constants/courses";
+// import { useCourseStore } from "@/app/store/useCourseStore";
+// import { useRouter } from "next/navigation";
+// import { useUserId } from "@/app/store/user";
+// import { doc, getDoc } from "firebase/firestore";
+import { cn } from "@/lib/utils";
 // import Products from "@/components/TradingCourse/Products";
+// import { useProducts } from "@/components/hooks/fetchProducts";
 
 interface Product {
   id: string;
@@ -21,16 +23,19 @@ interface Product {
   duration: string;
   type: "free" | "paid";
   imageSrc: StaticImageData;
+  category: string;
   amount?: number;
 }
 
 const PaidCourse = () => {
-  const router = useRouter();
-  const userId = useUserId();
-  const { setSelectedCourse } = useCourseStore();
+  // const router = useRouter();
+  // const userId = useUserId();
+  // const { setSelectedCourse } = useCourseStore();
 
-  const [purchasedCourseIds, setPurchasedCourseIds] = useState<string[]>([]);
-  const [selectedOption, setSelectedOption] = useState("");
+  // const [purchasedCourseIds, setPurchasedCourseIds] = useState<string[]>([]);
+  const [selectedOption, setSelectedOption] = useState("Forex Trading");
+
+  // console.log(selectedOption);
   // const [Loading, setLoading] = useState(false);
   const [products, setProducts] = useState<Product[]>([]);
 
@@ -56,12 +61,33 @@ const PaidCourse = () => {
   }, []);
 
   const paidCourses = products.filter((course) => course.type === "paid");
+  const ForexTradingCourses = products.filter(
+    (course) => course.category === "Forex Trading"
+  );
+
+  // console.log("Forex tradinbg", ForexTradingCourses);
+  const CryptoTradingCourses = products.filter(
+    (course) => course.category === "Crypto Trading"
+  );
+
+  const AdvancedTradingCourses = products.filter(
+    (course) => course.category === "Advanced Day Trading Strategies"
+  );
 
   // 👇 Load More logic state
   const [visibleCount, setVisibleCount] = useState(4);
   const [showAll, setShowAll] = useState(false);
 
-  const visibleCourses = paidCourses.slice(0, visibleCount);
+  const ForexTradingvisibleCourses = ForexTradingCourses.slice(0, visibleCount);
+  const CryptoTradingvisibleCourses = CryptoTradingCourses.slice(
+    0,
+    visibleCount
+  );
+
+  const AdvancedTradingvisibleCourses = AdvancedTradingCourses.slice(
+    0,
+    visibleCount
+  );
 
   const handleToggleCourses = () => {
     if (showAll) {
@@ -73,31 +99,33 @@ const PaidCourse = () => {
     }
   };
 
-  useEffect(() => {
-    const fetchPurchasedCourses = async () => {
-      if (!userId) return;
+  //purchased courses
 
-      try {
-        const userRef = doc(db, "users", userId);
-        const userSnap = await getDoc(userRef);
-        if (userSnap.exists()) {
-          const data = userSnap.data();
-          const purchased = data.purchasedCourses || [];
-          const ids = purchased.map((course: Course) => course.id);
-          setPurchasedCourseIds(ids);
-        }
-      } catch (error) {
-        console.error("Error fetching purchased courses:", error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchPurchasedCourses = async () => {
+  //     if (!userId) return;
 
-    fetchPurchasedCourses();
-  }, [userId]);
+  //     try {
+  //       const userRef = doc(db, "users", userId);
+  //       const userSnap = await getDoc(userRef);
+  //       if (userSnap.exists()) {
+  //         const data = userSnap.data();
+  //         const purchased = data.purchasedCourses || [];
+  //         const ids = purchased.map((course: Course) => course.id);
+  //         setPurchasedCourseIds(ids);
+  //       }
+  //     } catch (error) {
+  //       console.error("Error fetching purchased courses:", error);
+  //     }
+  //   };
 
-  const handleCourseClick = (course: Course, isPurchased: boolean) => {
-    setSelectedCourse(course);
-    router.push(isPurchased ? "/start-trading-course" : "/checkout");
-  };
+  //   fetchPurchasedCourses();
+  // }, [userId]);
+
+  // const handleCourseClick = (course: Course, isPurchased: boolean) => {
+  //   setSelectedCourse(course);
+  //   router.push(isPurchased ? "/start-trading-course" : "/checkout");
+  // };
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedOption(e.target.value);
@@ -119,9 +147,11 @@ const PaidCourse = () => {
                 <option value="" disabled>
                   Select Category
                 </option>
-                <option value="option1">Forex Trading</option>
-                <option value="option2">Crypto Trading</option>
-                <option value="option2">Advanced Day Trading Strategies</option>
+                <option value="Forex Trading">Forex Trading</option>
+                <option value="Crypto Trading">Crypto Trading</option>
+                <option value="Advanced Day Trading Strategies">
+                  Advanced Day Trading Strategies
+                </option>
               </select>
               <span className="absolute right-2 top-1/2 transform -translate-y-1/2 pointer-events-none">
                 <svg
@@ -137,7 +167,173 @@ const PaidCourse = () => {
         </div>
 
         <div className="flex flex-wrap gap-[37px] mt-12 mob:justify-center">
-          {visibleCourses.map((course) => {
+          {selectedOption === "Forex Trading" && (
+            <>
+              {ForexTradingvisibleCourses.map((course) => {
+                // const isPurchased = purchasedCourseIds.includes(course.id);
+                // console.log(purchasedCourseIds);
+                // console.log("course id", course.id);
+
+                return (
+                  <div
+                    key={course.id}
+                    // onClick={() => handleCourseClick(course, isPurchased)}
+                    className="w-[300px] rounded-[20px] course-shadow bg-white relative cursor-pointer"
+                  >
+                    <button className="bg-[#FF0000] w-[39px] h-[21px] rounded-[3px] absolute top-[15px] right-[15px] uppercase text-[9px] text-white">
+                      HOT
+                    </button>
+                    <Image
+                      className="w-full h-[154px] object-cover rounded-t-[20px]"
+                      src={course.imageSrc}
+                      alt={course.title}
+                      width={300}
+                      height={154}
+                    />
+                    <div className="px-[23px] py-[16px]">
+                      <Text className="text-[#0000004D] text-[13px] font-light">
+                        {course.category}
+                      </Text>
+                      <Text className="text-[15px] font-bold leading-[20px] mb-5">
+                        {course.title}
+                      </Text>
+                      <hr className="h-[0.8px] w-full bg-black" />
+                      <div className="flex justify-between items-center mt-1">
+                        <div className="flex items-center gap-2">
+                          <Image
+                            src={clock}
+                            alt="clock"
+                            width={10}
+                            height={10}
+                          />
+                          <Text className="text-[9px] text-black">
+                            {course.duration}
+                          </Text>
+                        </div>
+                        {/* <Text className="text-[12px] font-bold">
+                          {isPurchased ? "Purchased" : course.amount}
+                        </Text> */}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </>
+          )}
+
+          {/* Crypto Courses */}
+
+          {selectedOption === "Crypto Trading" && (
+            <>
+              {CryptoTradingvisibleCourses.map((course) => {
+                // const isPurchased = purchasedCourseIds.includes(course.id);
+                // console.log(purchasedCourseIds);
+                // console.log("course id", course.id);
+
+                return (
+                  <div
+                    key={course.id}
+                    // onClick={() => handleCourseClick(course, isPurchased)}
+                    className="w-[300px] rounded-[20px] course-shadow bg-white relative cursor-pointer"
+                  >
+                    <button className="bg-[#FF0000] w-[39px] h-[21px] rounded-[3px] absolute top-[15px] right-[15px] uppercase text-[9px] text-white">
+                      HOT
+                    </button>
+                    <Image
+                      className="w-full h-[154px] object-cover rounded-t-[20px]"
+                      src={course.imageSrc}
+                      alt={course.title}
+                      width={300}
+                      height={154}
+                    />
+                    <div className="px-[23px] py-[16px]">
+                      <Text className="text-[#0000004D] text-[13px] font-light">
+                        {course.category}
+                      </Text>
+                      <Text className="text-[15px] font-bold leading-[20px] mb-5">
+                        {course.title}
+                      </Text>
+                      <hr className="h-[0.8px] w-full bg-black" />
+                      <div className="flex justify-between items-center mt-1">
+                        <div className="flex items-center gap-2">
+                          <Image
+                            src={clock}
+                            alt="clock"
+                            width={10}
+                            height={10}
+                          />
+                          <Text className="text-[9px] text-black">
+                            {course.duration}
+                          </Text>
+                        </div>
+                        {/* <Text className="text-[12px] font-bold">
+                          {isPurchased ? "Purchased" : course.amount}
+                        </Text> */}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </>
+          )}
+
+          {/* Advanced Courses */}
+
+          {selectedOption === "Advanced Day Trading Strategies" && (
+            <>
+              {AdvancedTradingvisibleCourses.map((course) => {
+                // const isPurchased = purchasedCourseIds.includes(course.id);
+                // console.log(purchasedCourseIds);
+                // console.log("course id", course.id);
+
+                return (
+                  <div
+                    key={course.id}
+                    // onClick={() => handleCourseClick(course, isPurchased)}
+                    className="w-[300px] rounded-[20px] course-shadow bg-white relative cursor-pointer"
+                  >
+                    <button className="bg-[#FF0000] w-[39px] h-[21px] rounded-[3px] absolute top-[15px] right-[15px] uppercase text-[9px] text-white">
+                      HOT
+                    </button>
+                    <Image
+                      className="w-full h-[154px] object-cover rounded-t-[20px]"
+                      src={course.imageSrc}
+                      alt={course.title}
+                      width={300}
+                      height={154}
+                    />
+                    <div className="px-[23px] py-[16px]">
+                      <Text className="text-[#0000004D] text-[13px] font-light">
+                        {course.category}
+                      </Text>
+                      <Text className="text-[15px] font-bold leading-[20px] mb-5">
+                        {course.title}
+                      </Text>
+                      <hr className="h-[0.8px] w-full bg-black" />
+                      <div className="flex justify-between items-center mt-1">
+                        <div className="flex items-center gap-2">
+                          <Image
+                            src={clock}
+                            alt="clock"
+                            width={10}
+                            height={10}
+                          />
+                          <Text className="text-[9px] text-black">
+                            {course.duration}
+                          </Text>
+                        </div>
+                        {/* <Text className="text-[12px] font-bold">
+                          {isPurchased ? "Purchased" : course.amount}
+                        </Text> */}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </>
+          )}
+
+          {/* {visibleCourses.map((course) => {
             const isPurchased = purchasedCourseIds.includes(course.id);
 
             return (
@@ -178,13 +374,16 @@ const PaidCourse = () => {
                 </div>
               </div>
             );
-          })}
+          })} */}
         </div>
 
-        {/* 👇 Load More / See Less Toggle */}
+        {/*  Load More / See Less Toggle */}
+
         <Button
           onClick={handleToggleCourses}
-          className="mx-auto mt-20 bg-primary text-white rounded-[7px] max-w-[186px] h-[45px] text-[17px] font-medium"
+          className={cn(
+            "mx-auto mt-20 bg-primary text-white rounded-[7px] max-w-[186px] h-[45px] text-[17px] font-medium"
+          )}
         >
           {showAll ? "See Less" : "Load More"}
         </Button>
