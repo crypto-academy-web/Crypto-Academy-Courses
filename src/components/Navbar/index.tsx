@@ -13,7 +13,7 @@ import Modal from "../ui/Modal";
 import { useUser, useUserId } from "@/app/store/user";
 // import LogOutButton from "../Auth/Logout";
 import DropDown from "./DropDown";
-import logo from "@/public/icons/logo.svg";
+import logo from "@/public/logo.svg";
 
 import searchbar from "@/public/icons/searchbar.svg";
 import SearchModal from "../ui/SerchModal";
